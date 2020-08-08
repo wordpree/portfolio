@@ -25,7 +25,7 @@ const theme = createMuiTheme({
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <Layout />;
+      <Layout />
     </ThemeProvider>
   );
 }

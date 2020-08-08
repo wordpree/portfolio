@@ -1,45 +1,82 @@
 import React from "react";
 import { makeStyles, Typography, Button } from "@material-ui/core";
-import bg from "../assets/bg.svg";
+import bgSm from "../assets/bgSm.svg";
+import bgLg from "../assets/bgLg.svg";
 import developer from "../assets/developer.svg";
+import Social from "./Social";
 
 const useStyle = makeStyles((theme) => ({
   root: {
-    height: "100vh",
-    maxWidth: "100%",
+    minHeight: "100vh",
+    width: "100%",
     overflow: "hidden",
-    display: "flex",
+    position: "absolute",
+    top: 0,
+    left: 0,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    backgroundImage: `url(${bgSm})`,
+    [theme.breakpoints.up("lg")]: {
+      backgroundImage: `url(${bgLg})`,
+    },
   },
-  contWrapper: {
-    flex: "0 1 49%",
+  wrapper: {
+    display: "flex",
+    flexDirection: "column",
+    padding: "2rem 1rem",
+    marginTop: "15vh",
+    [theme.breakpoints.up("lg")]: {
+      flexDirection: "row",
+    },
   },
   content: {
+    [theme.breakpoints.up("lg")]: {
+      position: "absolute",
+      top: "50%",
+      transform: "translateY(-50%)",
+      width: "50%",
+    },
     textAlign: "center",
-    position: "relative",
-    top: "50%",
-    transform: "translateY(-50%)",
     "&>p": {
       fontWeight: "bold",
       color: "#FC8E53",
+      [theme.breakpoints.up("lg")]: {
+        fontSize: "1.25rem",
+      },
     },
-    "&>h2": { fontWeight: "bold", color: "#434343" },
-    "&>h5": {},
-  },
-  imgWrapper: {
-    flex: "0 1 49%",
-  },
-  img: {
-    maxWidth: "75%",
-    height: "100%",
-    margin: "0 auto",
-    display: "block",
-    padding: "3rem 2rem",
+    "&>h2": {
+      fontSize: "2rem",
+      fontWeight: "bold",
+      color: "#434343",
+      [theme.breakpoints.up("lg")]: {
+        fontSize: "3.75rem",
+        lineHeight: 0.8,
+      },
+    },
   },
   btnWrapper: {
-    margin: "2rem auto",
+    margin: "2rem auto 0",
+    [theme.breakpoints.up("lg")]: {
+      margin: "4rem auto 0",
+    },
+
     "&>button": {
-      textTransform: "capitalize",
       fontWeight: "bold",
+      borderRadius: 25,
+    },
+  },
+  smIcon: {
+    display: "block",
+    [theme.breakpoints.up("lg")]: {
+      display: "none",
+    },
+    "&>img": {
+      width: "99%",
+      maxWidth: 448,
+      display: "block",
+      textAlign: "right",
+      margin: "0 auto",
     },
   },
 }));
@@ -47,24 +84,21 @@ const useStyle = makeStyles((theme) => ({
 const Banner = () => {
   const classes = useStyle();
   return (
-    <div
-      className={classes.root}
-      style={{ background: `center/cover no-repeat url(${bg})` }}
-    >
-      <div className={classes.contWrapper}>
+    <div className={classes.root}>
+      <div className={classes.wrapper}>
         <div className={classes.content}>
           <Typography>Front-end React Developer</Typography>
-          <Typography variant="h2">Welcome to my Portfolio</Typography>
-          <Typography variant="h5">Hai Jun Wang</Typography>
+          <Typography variant="h2">Welcome To My Portfolio</Typography>
           <div className={classes.btnWrapper}>
             <Button variant="contained" color="primary">
-              Go & Look at the portfolio
+              Look at the portfolio
             </Button>
           </div>
+          <Social />
         </div>
-      </div>
-      <div className={classes.imgWrapper}>
-        <img src={developer} alt="developer" className={classes.img} />
+        <div className={classes.smIcon}>
+          <img src={developer} alt="developer" />
+        </div>
       </div>
     </div>
   );

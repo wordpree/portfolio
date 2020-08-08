@@ -16,9 +16,9 @@ const Layout = () => {
   return (
     <>
       <CssBaseline />
+      <Header />
       <Banner />
       <Container className={classes.container}>
-        <Header />
         <Bio />
         <Footer />
       </Container>
