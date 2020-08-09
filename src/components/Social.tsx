@@ -25,7 +25,7 @@ const Social = () => {
     <div className={classes.root}>
       {socialIcons.map((S, i) => (
         <Typography component="span" key={i}>
-          <S fontSize="small" className="linkedin" color="secondary" />
+          <S fontSize="small" className="linkedin" color="primary" />
         </Typography>
       ))}
     </div>

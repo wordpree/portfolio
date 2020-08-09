@@ -4,15 +4,11 @@ import bgSm from "../assets/bgSm.svg";
 import bgLg from "../assets/bgLg.svg";
 import developer from "../assets/developer.svg";
 import Social from "./Social";
+import Header from "./Header";
 
 const useStyle = makeStyles((theme) => ({
   root: {
     minHeight: "100vh",
-    width: "100%",
-    overflow: "hidden",
-    position: "absolute",
-    top: 0,
-    left: 0,
     backgroundSize: "cover",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
@@ -25,7 +21,6 @@ const useStyle = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     padding: "2rem 1rem",
-    marginTop: "15vh",
     [theme.breakpoints.up("lg")]: {
       flexDirection: "row",
     },
@@ -38,7 +33,7 @@ const useStyle = makeStyles((theme) => ({
       width: "50%",
     },
     textAlign: "center",
-    "&>p": {
+    "&>p:first-child": {
       fontWeight: "bold",
       color: "#FC8E53",
       [theme.breakpoints.up("lg")]: {
@@ -51,8 +46,14 @@ const useStyle = makeStyles((theme) => ({
       color: "#434343",
       [theme.breakpoints.up("lg")]: {
         fontSize: "3.75rem",
-        lineHeight: 0.8,
       },
+    },
+  },
+  description: {
+    padding: "1rem",
+    fontSize: "0.9rem",
+    [theme.breakpoints.up("lg")]: {
+      fontSize: "1rem",
     },
   },
   btnWrapper: {
@@ -84,11 +85,16 @@ const useStyle = makeStyles((theme) => ({
 const Banner = () => {
   const classes = useStyle();
   return (
-    <div className={classes.root}>
+    <section className={classes.root}>
+      <Header />
       <div className={classes.wrapper}>
         <div className={classes.content}>
           <Typography>Front-end React Developer</Typography>
           <Typography variant="h2">Welcome To My Portfolio</Typography>
+          <Typography color="textSecondary" className={classes.description}>
+            A well-established software engineer with educational background and
+            passion <br /> for developing react website & application
+          </Typography>
           <div className={classes.btnWrapper}>
             <Button variant="contained" color="primary">
               Look at the portfolio
@@ -100,7 +106,7 @@ const Banner = () => {
           <img src={developer} alt="developer" />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
