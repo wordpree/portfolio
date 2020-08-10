@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import { motion } from "framer-motion";
 import { makeStyles, Typography } from "@material-ui/core";
 import skillsSvg from "../assets/skills.svg";
+import Entry from "./Entry";
 import ProcessBar from "./ProcessBar";
 import useAnimation from "./useAnimation";
 import { skillsImgVariants } from "../motion";
@@ -12,9 +13,8 @@ const useStyles = makeStyles((theme) => ({
   },
   root: {
     display: "flex",
-
     flexDirection: "column",
-    [theme.breakpoints.up(768)]: {
+    [theme.breakpoints.up(960)]: {
       flexDirection: "row",
       alignItems: "center",
     },
@@ -26,10 +26,20 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
   },
   skill: {
-    flex: "0 1 45%",
+    padding: "0.75rem",
+    [theme.breakpoints.up(960)]: {
+      flex: "0 1 55%",
+      padding: "2rem",
+    },
   },
   imgWrapper: {
-    flex: "0 1 55%",
+    [theme.breakpoints.up(960)]: {
+      flex: "0 1 45%",
+    },
+  },
+  figure: {
+    margin: "1rem auto",
+    maxWidth: 388,
   },
 }));
 
@@ -49,27 +59,27 @@ const Skills = () => {
   const [animation] = useAnimation(ref);
 
   return (
-    <motion.section
-      className={classes.section}
-      initial="hidden"
-      animate={animation ? "visible" : "hidden"}
-    >
+    <Entry>
       <Typography variant="h5" className={classes.title}>
         Skills On Hands
       </Typography>
-      <div className={classes.root}>
+      <motion.div
+        className={classes.root}
+        initial="hidden"
+        animate={animation ? "visible" : "hidden"}
+      >
         <div className={classes.skill} ref={ref}>
           {skills.map((s) => (
             <ProcessBar {...s} key={s.label} />
           ))}
         </div>
         <motion.div className={classes.imgWrapper} variants={skillsImgVariants}>
-          <figure>
+          <figure className={classes.figure}>
             <img src={skillsSvg} alt="skill icon" />
           </figure>
         </motion.div>
-      </div>
-    </motion.section>
+      </motion.div>
+    </Entry>
   );
 };
 

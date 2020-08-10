@@ -1,22 +1,13 @@
 import React from "react";
 import { Typography, makeStyles } from "@material-ui/core";
+import Entry from "./Entry";
 import who from "../assets/who.svg";
 
 const useStyle = makeStyles((theme) => ({
-  section: {
-    margin: "5rem auto 0",
-    padding: "0.25rem",
-    boxShadow: "0 4px 4px rgba(0, 0, 0, 0.25)",
-    background: "rgba(133, 80, 252, 0.1)",
-    borderRadius: 6,
-    [theme.breakpoints.up(768)]: {
-      padding: "2rem",
-    },
-  },
   root: {
     display: "flex",
     flexDirection: "column-reverse",
-    [theme.breakpoints.up(768)]: {
+    [theme.breakpoints.up(960)]: {
       flexDirection: "row",
       alignItems: "center",
     },
@@ -24,7 +15,7 @@ const useStyle = makeStyles((theme) => ({
   figure: {
     margin: "0 auto",
     width: "100%",
-    [theme.breakpoints.up(768)]: {
+    [theme.breakpoints.up(960)]: {
       width: "none",
       padding: "1.5rem",
     },
@@ -34,14 +25,16 @@ const useStyle = makeStyles((theme) => ({
     display: "block",
     margin: "0 auto",
     maxWidth: 388,
-    [theme.breakpoints.up(768)]: {
+    maxHeight: 328,
+    [theme.breakpoints.up(960)]: {
       maxWidth: "none",
       width: 348,
+      maxHeight: 368,
     },
   },
   article: {
     padding: "1rem",
-    [theme.breakpoints.up(768)]: {
+    [theme.breakpoints.up(960)]: {
       paddingLeft: "4%  ",
     },
   },
@@ -61,7 +54,7 @@ const useStyle = makeStyles((theme) => ({
 const Bio = () => {
   const classes = useStyle();
   return (
-    <section className={classes.section}>
+    <Entry>
       <div className={classes.root}>
         <figure className={classes.figure}>
           <img src={who} className={classes.who} alt="introduction" />
@@ -85,7 +78,7 @@ const Bio = () => {
           </Typography>
         </article>
       </div>
-    </section>
+    </Entry>
   );
 };
 
