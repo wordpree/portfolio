@@ -8,6 +8,7 @@ import Header from "./Header";
 
 const useStyle = makeStyles((theme) => ({
   root: {
+    position: "relative",
     minHeight: "100vh",
     backgroundSize: "cover",
     backgroundPosition: "center",
@@ -43,9 +44,9 @@ const useStyle = makeStyles((theme) => ({
     "&>h2": {
       fontSize: "2rem",
       fontWeight: "bold",
-      color: "#434343",
+      color: "#8550FC",
       [theme.breakpoints.up("lg")]: {
-        fontSize: "3.75rem",
+        fontSize: "3.25rem",
       },
     },
   },
@@ -87,7 +88,7 @@ const Banner = () => {
   return (
     <section className={classes.root}>
       <Header />
-      <div className={classes.wrapper}>
+      <article className={classes.wrapper}>
         <div className={classes.content}>
           <Typography>Front-end React Developer</Typography>
           <Typography variant="h2">Welcome To My Portfolio</Typography>
@@ -105,7 +106,7 @@ const Banner = () => {
         <div className={classes.smIcon}>
           <img src={developer} alt="developer" />
         </div>
-      </div>
+      </article>
     </section>
   );
 };

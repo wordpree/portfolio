@@ -5,6 +5,13 @@ import who from "../assets/who.svg";
 const useStyle = makeStyles((theme) => ({
   section: {
     margin: "5rem auto 0",
+    padding: "0.25rem",
+    boxShadow: "0 4px 4px rgba(0, 0, 0, 0.25)",
+    background: "rgba(133, 80, 252, 0.1)",
+    borderRadius: 6,
+    [theme.breakpoints.up(768)]: {
+      padding: "2rem",
+    },
   },
   root: {
     display: "flex",
@@ -44,6 +51,7 @@ const useStyle = makeStyles((theme) => ({
   },
   title: {
     fontWeight: "bold",
+    color: "#8550FC",
   },
   content: {
     padding: "2rem 0.5rem",
