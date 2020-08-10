@@ -13,10 +13,18 @@ export const skillsBarVariants = (width: string) => ({
 });
 
 export const skillsImgVariants = {
-  hidden: { x: "100vw", opacity: 0 },
+  hidden: { x: 350, opacity: 0 },
   visible: {
     x: 0,
     opacity: 1,
-    transition: { type: "spring", stiffness: 100, mass: 0.5, delay: 0.5 },
+    transition: { type: "spring", stiffness: 100, mass: 0.5, delay: 0.75 },
+  },
+};
+
+export const skillsParentVariants = {
+  visible: {
+    transition: {
+      staggerChildren: 0.15,
+    },
   },
 };

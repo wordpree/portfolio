@@ -5,11 +5,12 @@ import skillsSvg from "../assets/skills.svg";
 import Entry from "./Entry";
 import ProcessBar from "./ProcessBar";
 import useAnimation from "./useAnimation";
-import { skillsImgVariants } from "../motion";
+import { skillsImgVariants, skillsParentVariants } from "../motion";
 
 const useStyles = makeStyles((theme) => ({
   section: {
     marginTop: "7rem",
+    marginBottom: 400,
   },
   root: {
     display: "flex",
@@ -68,11 +69,15 @@ const Skills = () => {
         initial="hidden"
         animate={animation ? "visible" : "hidden"}
       >
-        <div className={classes.skill} ref={ref}>
+        <motion.div
+          className={classes.skill}
+          ref={ref}
+          variants={skillsParentVariants}
+        >
           {skills.map((s) => (
             <ProcessBar {...s} key={s.label} />
           ))}
-        </div>
+        </motion.div>
         <motion.div className={classes.imgWrapper} variants={skillsImgVariants}>
           <figure className={classes.figure}>
             <img src={skillsSvg} alt="skill icon" />

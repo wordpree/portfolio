@@ -44,7 +44,7 @@ const ProcessBar = ({ percentage, label }: IPProps) => {
   const classes = useStyles();
 
   return (
-    <div className={classes.entry}>
+    <motion.div className={classes.entry}>
       <div className={classes.root}>
         <motion.div
           variants={skillsBarVariants(`${percentage}%`)}
@@ -54,7 +54,7 @@ const ProcessBar = ({ percentage, label }: IPProps) => {
         </motion.div>
       </div>
       <span className={classes.label}>{label}</span>
-    </div>
+    </motion.div>
   );
 };
 
