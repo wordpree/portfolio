@@ -5,6 +5,7 @@ import Entry from "../Entry";
 import NavButton from "../NavButton";
 import { portfolio } from "../../data";
 import ProjectCard from "./ProjectCard";
+import MotionDrag from "../MotionDrag";
 import { indexRang } from "../../utils";
 
 const useStyles = makeStyles((theme) => ({
@@ -34,15 +35,6 @@ const useStyles = makeStyles((theme) => ({
   sliderWrapper: {
     overflow: "hidden",
   },
-  sliders: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    [theme.breakpoints.up(768)]: {
-      flexDirection: "row",
-      flex: "0 1 75%",
-    },
-  },
   slider: {
     padding: "1%",
     [theme.breakpoints.up(768)]: {
@@ -69,7 +61,7 @@ const Portfolio = () => {
     return ele.getBoundingClientRect().width;
   };
   const slideWith = getWith(ref.current);
-  const swipThreshold = (1 / 2) * slideWith;
+  const swipeThreshold = (1 / 2) * slideWith;
   const leftBtnState = Math.abs(step) === count - sliderToShow;
   const rightBtnState = step === 0;
   const handleSliderClick = (newIndex: number, slider: number) => {
@@ -95,22 +87,20 @@ const Portfolio = () => {
         />
       </aside>
       <div className={classes.sliderWrapper}>
-        <motion.div
-          ref={ref}
-          drag="x"
-          className={classes.sliders}
-          dragConstraints={{ left: 0, right: 0 }}
-          onDragEnd={(event, info) => {
-            if (info.offset.x > swipThreshold) {
-              handleSliderClick(1, sliderToShow);
-            }
-            if (info.offset.x < -swipThreshold) {
-              handleSliderClick(-1, sliderToShow);
-            }
-          }}
-        >
-          {portfolio.map((p) =>
-            md ? (
+        {!md ? (
+          <div>
+            {portfolio.map((p) => (
+              <ProjectCard {...p} key={p.title} />
+            ))}
+          </div>
+        ) : (
+          <MotionDrag
+            divRef={ref}
+            sliderToShow={sliderToShow}
+            handleDragEnd={handleSliderClick}
+            swipeThreshold={swipeThreshold}
+          >
+            {portfolio.map((p) => (
               <motion.div
                 key={p.title}
                 className={classes.slider}
@@ -122,11 +112,9 @@ const Portfolio = () => {
               >
                 <ProjectCard {...p} />
               </motion.div>
-            ) : (
-              <ProjectCard {...p} key={p.title} />
-            )
-          )}
-        </motion.div>
+            ))}
+          </MotionDrag>
+        )}
       </div>
     </Entry>
   );
