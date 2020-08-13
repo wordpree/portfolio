@@ -1,6 +1,6 @@
 import React from "react";
-import { Banner, Bio, Footer, Skills } from "./index";
-import { Container, CssBaseline, makeStyles } from "@material-ui/core";
+import { Banner, Bio, Footer, Skills, Portfolio } from "./index";
+import { Container, makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -14,11 +14,11 @@ const Layout = () => {
   const classes = useStyles();
   return (
     <>
-      <CssBaseline />
       <Banner />
       <Container className={classes.container}>
         <Bio />
         <Skills />
+        <Portfolio />
         <Footer />
       </Container>
     </>

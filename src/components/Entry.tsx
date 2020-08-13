@@ -9,7 +9,7 @@ const useStyle = makeStyles((theme) => ({
   section: {
     margin: "5rem auto 0",
     padding: "0.25rem",
-    boxShadow: "0 4px 4px rgba(0, 0, 0, 0.25)",
+    boxShadow: "0 3px 2px rgba(0, 0, 0, 0.18)",
     background: "rgba(133, 80, 252, 0.1)",
     borderRadius: 6,
     [theme.breakpoints.up(768)]: {

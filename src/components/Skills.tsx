@@ -1,10 +1,11 @@
 import React, { useRef } from "react";
 import { motion } from "framer-motion";
 import { makeStyles, Typography } from "@material-ui/core";
-import skillsSvg from "../assets/skills.svg";
 import Entry from "./Entry";
+import { skills } from "../data";
 import ProcessBar from "./ProcessBar";
 import useAnimation from "./useAnimation";
+import skillsSvg from "../assets/skills.svg";
 import { skillsImgVariants, skillsParentVariants } from "../motion";
 
 const useStyles = makeStyles((theme) => ({
@@ -46,16 +47,6 @@ const useStyles = makeStyles((theme) => ({
 
 const Skills = () => {
   const classes = useStyles();
-  const skills = [
-    { label: "HTML", percentage: 92 },
-    { label: "CSS", percentage: 90 },
-    { label: "ES6", percentage: 90 },
-    { label: "Reactjs", percentage: 90 },
-    { label: "Typescript", percentage: 75 },
-    { label: "Redux", percentage: 70 },
-    { label: "Redux-Saga", percentage: 70 },
-  ];
-
   const ref = useRef<HTMLDivElement>(null);
   const [animation] = useAnimation(ref);
 
