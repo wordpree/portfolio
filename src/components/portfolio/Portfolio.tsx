@@ -35,6 +35,9 @@ const useStyles = makeStyles((theme) => ({
   sliderWrapper: {
     overflow: "hidden",
   },
+  sliderMd: {
+    padding: "0 8px",
+  },
   slider: {
     padding: "1%",
     [theme.breakpoints.up(768)]: {
@@ -88,7 +91,7 @@ const Portfolio = () => {
       </aside>
       <div className={classes.sliderWrapper}>
         {!md ? (
-          <div>
+          <div className={classes.sliderMd}>
             {portfolio.map((p) => (
               <ProjectCard {...p} key={p.title} />
             ))}

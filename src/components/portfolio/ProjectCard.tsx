@@ -14,19 +14,21 @@ interface IPProps {
   title: string;
   content: string;
   img: string;
+  link: string;
 }
 
 const useStyles = makeStyles((theme) => ({
   card: {
     maxWidth: 375,
-    margin: "0 auto 5%",
+    margin: "0 auto 8%",
     [theme.breakpoints.up(768)]: {
       maxWidth: "100%",
+      margin: "auto",
     },
   },
   media: {
     height: 0,
-    paddingTop: "75.25%",
+    paddingTop: "85%",
   },
   content: {
     minHeight: 138,
@@ -38,11 +40,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ProjectCard = ({ title, content, img }: IPProps) => {
+const ProjectCard = ({ title, content, img, link }: IPProps) => {
   const classes = useStyles();
   return (
     <Card className={classes.card} raised>
-      <CardActionArea>
+      <CardActionArea href={link} target="_blank">
         <CardMedia image={img} className={classes.media} />
       </CardActionArea>
       <CardContent className={classes.content}>
@@ -57,7 +59,7 @@ const ProjectCard = ({ title, content, img }: IPProps) => {
         <Button size="small" color="primary">
           More Details
         </Button>
-        <Button size="small" color="primary">
+        <Button size="small" color="primary" href={link} target="_blank">
           View Website
         </Button>
       </CardActions>
