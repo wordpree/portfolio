@@ -8,7 +8,7 @@ const useAnimation = (ref: React.RefObject<HTMLDivElement>): Animation => {
   useEffect(() => {
     const handleScroll = throttle(250, () => {
       const topOfVp = ref.current && ref.current.getBoundingClientRect().top;
-      if (topOfVp && topOfVp < 300) {
+      if (topOfVp && topOfVp < 380) {
         setAnimation(true);
       }
     });
