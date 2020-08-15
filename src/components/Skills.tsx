@@ -15,6 +15,7 @@ const useStyles = makeStyles((theme) => ({
   },
   root: {
     display: "flex",
+    overflow: "hidden",
     flexDirection: "column",
     [theme.breakpoints.up(960)]: {
       flexDirection: "row",
