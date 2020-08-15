@@ -1,6 +1,7 @@
 import React from "react";
 import { makeStyles, Button } from "@material-ui/core";
 import logo from "../assets/logo.svg";
+import resume from "../assets/cv/resume.pdf";
 
 const useStyles = makeStyles((theme) => ({
   header: {
@@ -49,7 +50,9 @@ const Header = () => {
         <img src={logo} className={classes.logo} alt="logo" />
       </div>
       <div>
-        <Button className={classes.btn}>Portfolio</Button>
+        <Button className={classes.btn} href={resume} target="_blank">
+          Resume
+        </Button>
       </div>
     </header>
   );

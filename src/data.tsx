@@ -1,3 +1,4 @@
+import { Linkedin, Github, Email, Reddit } from "mdi-material-ui";
 import cvdTracking from "./assets/project/covid-19-tracking.jpg";
 import qldScenery from "./assets/project/qld-scenery.jpg";
 import travelus from "./assets/project/travelus.jpg";
@@ -42,4 +43,15 @@ export const skills = [
   { label: "Typescript", percentage: 75 },
   { label: "Redux", percentage: 70 },
   { label: "Redux-Saga", percentage: 70 },
+];
+
+export const socials = [
+  {
+    Icon: Linkedin,
+    id: 1,
+    link: "https://www.linkedin.com/in/haijun-wang-8b4bab150/",
+  },
+  { Icon: Github, id: 2, link: "https://github.com/wordpree?tab=repositories" },
+  { Icon: Email, id: 3, link: "mailto:wanghaijun04@gmail.com" },
+  { Icon: Reddit, id: 4, link: "" },
 ];

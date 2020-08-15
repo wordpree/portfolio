@@ -1,14 +1,13 @@
 import React from "react";
-import { Typography, makeStyles } from "@material-ui/core";
-import { Linkedin, Github, Youtube, Reddit } from "mdi-material-ui";
+import { makeStyles, Button } from "@material-ui/core";
+import { socials } from "../data";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     justifyContent: "space-between",
     display: "inline-flex",
     alignItems: "center",
-    width: "68%",
-    maxWidth: 310,
+    maxWidth: 328,
     marginTop: "1rem",
     padding: "1rem",
     [theme.breakpoints.up("sm")]: {
@@ -20,13 +19,12 @@ const useStyles = makeStyles((theme) => ({
 
 const Social = () => {
   const classes = useStyles();
-  const socialIcons = [Linkedin, Github, Youtube, Reddit];
   return (
     <div className={classes.root}>
-      {socialIcons.map((S, i) => (
-        <Typography component="span" key={i}>
-          <S fontSize="small" className="linkedin" color="primary" />
-        </Typography>
+      {socials.map((s) => (
+        <Button key={s.id} color="primary" href={s.link} target="_blank">
+          <s.Icon fontSize="small" />
+        </Button>
       ))}
     </div>
   );

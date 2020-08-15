@@ -34,7 +34,7 @@ const MotionDrag = ({
       ref={divRef}
       drag="x"
       className={classes.sliders}
-      dragConstraints={{ left: 0, right: 0 }}
+      dragConstraints={{ left: 0, right: 0, bottom: 0, top: 0 }}
       onDragEnd={(event, info) => {
         if (info.offset.x > swipeThreshold) {
           handleDragEnd(1, sliderToShow);

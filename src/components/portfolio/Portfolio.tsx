@@ -64,7 +64,7 @@ const Portfolio = () => {
     return ele.getBoundingClientRect().width;
   };
   const slideWith = getWith(ref.current);
-  const swipeThreshold = (1 / 2) * slideWith;
+  const swipeThreshold = (1 / 3) * slideWith;
   const leftBtnState = Math.abs(step) === count - sliderToShow;
   const rightBtnState = step === 0;
   const handleSliderClick = (newIndex: number, slider: number) => {
