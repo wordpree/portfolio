@@ -36,11 +36,11 @@ export const portfolio = [
 ];
 
 export const skills = [
-  { label: "HTML", percentage: 92 },
+  { label: "HTML", percentage: 95 },
   { label: "CSS", percentage: 90 },
-  { label: "ES6", percentage: 90 },
-  { label: "Reactjs", percentage: 90 },
-  { label: "Typescript", percentage: 75 },
+  { label: "ES6", percentage: 80 },
+  { label: "Reactjs", percentage: 80 },
+  { label: "Typescript", percentage: 70 },
   { label: "Redux", percentage: 70 },
   { label: "Redux-Saga", percentage: 70 },
 ];

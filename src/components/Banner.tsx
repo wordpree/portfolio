@@ -97,7 +97,7 @@ const Banner = () => {
             passion <br /> for developing react website & application
           </Typography>
           <div className={classes.btnWrapper}>
-            <Button variant="contained" color="primary">
+            <Button variant="contained" color="primary" href="#portfolio">
               Look at the portfolio
             </Button>
           </div>

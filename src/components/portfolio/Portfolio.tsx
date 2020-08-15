@@ -10,11 +10,10 @@ import { indexRang } from "../../utils";
 
 const useStyles = makeStyles((theme) => ({
   section: {
-    marginTop: "5rem",
-    padding: "2rem",
+    padding: "1.5%",
     overflow: "hidden",
   },
-  side: {
+  header: {
     padding: "6% 1em",
     marginBottom: "1.25em",
     [theme.breakpoints.up(768)]: {
@@ -73,52 +72,54 @@ const Portfolio = () => {
 
   return (
     <Entry>
-      <aside className={classes.side}>
-        <article className={classes.content}>
-          <Typography className={classes.subtitle} variant="subtitle1">
-            showcase
-          </Typography>
-          <Typography className={classes.title} variant="h4">
-            Portfolio
-          </Typography>
-        </article>
-        <NavButton
-          leftBtn={leftBtnState}
-          rightBtn={rightBtnState}
-          sliderToShow={sliderToShow}
-          handleClick={handleSliderClick}
-        />
-      </aside>
-      <div className={classes.sliderWrapper}>
-        {!md ? (
-          <div className={classes.sliderMd}>
-            {portfolio.map((p) => (
-              <ProjectCard {...p} key={p.title} />
-            ))}
-          </div>
-        ) : (
-          <MotionDrag
-            divRef={ref}
+      <section id="portfolio" className={classes.section}>
+        <div className={classes.header}>
+          <article className={classes.content}>
+            <Typography className={classes.subtitle} variant="subtitle1">
+              showcase
+            </Typography>
+            <Typography className={classes.title} variant="h4">
+              Portfolio
+            </Typography>
+          </article>
+          <NavButton
+            leftBtn={leftBtnState}
+            rightBtn={rightBtnState}
             sliderToShow={sliderToShow}
-            handleDragEnd={handleSliderClick}
-            swipeThreshold={swipeThreshold}
-          >
-            {portfolio.map((p) => (
-              <motion.div
-                key={p.title}
-                className={classes.slider}
-                animate={{ x: (step * slideWith) / sliderToShow }}
-                transition={{
-                  x: { type: "spring", stiffness: 50, mass: 0.75 },
-                }}
-                initial={false}
-              >
-                <ProjectCard {...p} />
-              </motion.div>
-            ))}
-          </MotionDrag>
-        )}
-      </div>
+            handleClick={handleSliderClick}
+          />
+        </div>
+        <div className={classes.sliderWrapper}>
+          {!md ? (
+            <div className={classes.sliderMd}>
+              {portfolio.map((p) => (
+                <ProjectCard {...p} key={p.title} />
+              ))}
+            </div>
+          ) : (
+            <MotionDrag
+              divRef={ref}
+              sliderToShow={sliderToShow}
+              handleDragEnd={handleSliderClick}
+              swipeThreshold={swipeThreshold}
+            >
+              {portfolio.map((p) => (
+                <motion.div
+                  key={p.title}
+                  className={classes.slider}
+                  animate={{ x: (step * slideWith) / sliderToShow }}
+                  transition={{
+                    x: { type: "spring", stiffness: 50, mass: 0.75 },
+                  }}
+                  initial={false}
+                >
+                  <ProjectCard {...p} />
+                </motion.div>
+              ))}
+            </MotionDrag>
+          )}
+        </div>
+      </section>
     </Entry>
   );
 };
