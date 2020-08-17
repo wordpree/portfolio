@@ -4,7 +4,6 @@ import { makeStyles } from "@material-ui/core";
 
 interface IMProps {
   children: React.ReactNode;
-  divRef: React.RefObject<HTMLDivElement>;
   swipeThreshold: number;
   sliderToShow: number;
   handleDragEnd(step: number, slide: number): void;
@@ -22,7 +21,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const MotionDrag = ({
-  divRef,
   handleDragEnd,
   children,
   sliderToShow,
@@ -31,7 +29,6 @@ const MotionDrag = ({
   const classes = useStyles();
   return (
     <motion.div
-      ref={divRef}
       drag="x"
       className={classes.sliders}
       dragConstraints={{ left: 0, right: 0, bottom: 0, top: 0 }}

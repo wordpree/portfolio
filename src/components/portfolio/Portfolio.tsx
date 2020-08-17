@@ -1,12 +1,13 @@
-import React, { useState, useRef } from "react";
-import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { AnimateSharedLayout, AnimatePresence } from "framer-motion";
 import { makeStyles, Typography, useMediaQuery } from "@material-ui/core";
 import Entry from "../Entry";
+import Detail from "./Detail";
+import { TDetail } from "../../type";
 import NavButton from "../NavButton";
-import { portfolio } from "../../data";
-import ProjectCard from "./ProjectCard";
-import MotionDrag from "../MotionDrag";
 import { indexRang } from "../../utils";
+import { portfolio, details } from "../../data";
+import { ProjectCardsSm, ProjectCardsLg } from "./ProjectCards";
 
 const useStyles = makeStyles((theme) => ({
   section: {
@@ -34,42 +35,28 @@ const useStyles = makeStyles((theme) => ({
   sliderWrapper: {
     overflow: "hidden",
   },
-  sliderMd: {
-    padding: "0 8px",
-  },
-  slider: {
-    padding: "1%",
-    [theme.breakpoints.up(768)]: {
-      flex: "1 1 50%",
-      minWidth: "50%",
-    },
-    [theme.breakpoints.up(1024)]: {
-      flex: "1 1 33.33%",
-      minWidth: "33.33%",
-    },
-  },
 }));
 
 const Portfolio = () => {
   const classes = useStyles();
   const [step, setStep] = useState(0);
+  const [detailOpen, setDetailOpen] = useState({ open: false, id: 1 });
   const count = portfolio.length;
   const lg = useMediaQuery("(min-width:1024px)");
   const md = useMediaQuery("(min-width:768px)");
   const sliderToShow = lg ? 3 : 2;
-  const ref = useRef<HTMLDivElement>(null);
-  const getWith = (ele: HTMLDivElement | null) => {
-    if (!ele) return 0;
-    return ele.getBoundingClientRect().width;
-  };
-  const slideWith = getWith(ref.current);
-  const swipeThreshold = (1 / 3) * slideWith;
   const leftBtnState = Math.abs(step) === count - sliderToShow;
   const rightBtnState = step === 0;
   const handleSliderClick = (newIndex: number, slider: number) => {
     setStep((prev) => indexRang(0, count, prev + newIndex, slider));
   };
+  const handleDetail = (open: boolean, id: number) =>
+    setDetailOpen({ open, id });
 
+  const getDetailByid = (id: number, source: TDetail[]) => {
+    return source.find((s) => s.id === id);
+  };
+  const detail = getDetailByid(detailOpen.id, details);
   return (
     <Entry>
       <section id="portfolio" className={classes.section}>
@@ -89,36 +76,25 @@ const Portfolio = () => {
             handleClick={handleSliderClick}
           />
         </div>
-        <div className={classes.sliderWrapper}>
-          {!md ? (
-            <div className={classes.sliderMd}>
-              {portfolio.map((p) => (
-                <ProjectCard {...p} key={p.title} />
-              ))}
-            </div>
-          ) : (
-            <MotionDrag
-              divRef={ref}
-              sliderToShow={sliderToShow}
-              handleDragEnd={handleSliderClick}
-              swipeThreshold={swipeThreshold}
-            >
-              {portfolio.map((p) => (
-                <motion.div
-                  key={p.title}
-                  className={classes.slider}
-                  animate={{ x: (step * slideWith) / sliderToShow }}
-                  transition={{
-                    x: { type: "spring", stiffness: 50, mass: 0.75 },
-                  }}
-                  initial={false}
-                >
-                  <ProjectCard {...p} />
-                </motion.div>
-              ))}
-            </MotionDrag>
+        <AnimateSharedLayout type="crossfade">
+          <div className={classes.sliderWrapper}>
+            {md ? (
+              <ProjectCardsLg
+                sliderToShow={sliderToShow}
+                handleSliderClick={handleSliderClick}
+                step={step}
+                handleDetail={handleDetail}
+              />
+            ) : (
+              <ProjectCardsSm handleDetail={handleDetail} />
+            )}
+          </div>
+          {detail && detailOpen.open && (
+            <AnimatePresence>
+              <Detail {...detail} handleDetail={handleDetail} />
+            </AnimatePresence>
           )}
-        </div>
+        </AnimateSharedLayout>
       </section>
     </Entry>
   );
