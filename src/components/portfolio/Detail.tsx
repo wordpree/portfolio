@@ -34,42 +34,55 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     left: 0,
     zIndex: 999,
+    cursor: "pointer",
   },
   container: {
     position: "fixed",
-    left: 0,
+    left: "50%",
     top: 0,
     right: 0,
-    overflow: "hidden",
+    overflowY: "scroll",
     zIndex: 999,
     padding: "2em 0",
+    height: "100vh",
+    transform: "translate(-50%)",
+    maxWidth: 760,
+    width: "95%",
   },
   article: {
     padding: "1em",
-    width: "98%",
-    maxWidth: 760,
     margin: "0 auto",
     background: "#dedede",
-    [theme.breakpoints.up(500)]: {
-      width: "93%",
-    },
+    cursor: "initial",
+    [theme.breakpoints.up(500)]: {},
+  },
+  header: {
+    display: "flex",
+    padding: "1em 0.5em",
+  },
+  title: {
+    color: "#8550FC",
+    fontWeight: "bold",
+    marginRight: "auto",
   },
   divider: {
     marginBottom: "1.5em",
   },
   media: {
-    height: 225,
-    [theme.breakpoints.up(400)]: {
+    height: 0,
+    paddingTop: "56.25%",
+    [theme.breakpoints.up(768)]: {
       height: 335,
     },
   },
-  title: {
-    color: "#8550FC",
-    fontWeight: "bold",
+  cardContent: {
+    background: "#f0f0f0",
+    color: "#262626",
   },
   actions: {
     justifyContent: "space-between",
     padding: "0 1em 1em",
+    background: "#f0f0f0",
   },
 }));
 
@@ -93,21 +106,27 @@ const Detail = ({
       <div className={classes.overlay} onClick={() => handleDetail(false, 0)} />
       <div className={classes.container}>
         <motion.div className={classes.article}>
-          <Button onClick={() => handleDetail(false, 0)} color="primary">
-            <CloseBox />
-          </Button>
+          <motion.div className={classes.header} animate>
+            <Typography variant="h6" className={classes.title}>
+              {title}
+            </Typography>
+            <Button onClick={() => handleDetail(false, 0)} color="primary">
+              <CloseBox />
+            </Button>
+          </motion.div>
           <Divider className={classes.divider} />
           <Card elevation={0}>
             <motion.div layoutId={`img-container-${id}`}>
               <CardMedia image={img} className={classes.media} />
             </motion.div>
             <motion.div layoutId={`content-container-${id}`}>
-              <CardContent>
-                <Typography variant="h6" className={classes.title}>
-                  {title}
-                </Typography>
-                <SkillList technique={technique} />
-                <Typography variant="body2">{description}</Typography>
+              <CardContent className={classes.cardContent}>
+                <motion.div animate>
+                  <SkillList technique={technique} />
+                </motion.div>
+                <motion.div layoutId={`content-body-${id}`}>
+                  <Typography variant="body2">{description}</Typography>
+                </motion.div>
               </CardContent>
             </motion.div>
             <CardActions className={classes.actions}>

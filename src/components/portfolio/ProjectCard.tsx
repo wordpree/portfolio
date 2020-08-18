@@ -62,12 +62,14 @@ const ProjectCard = ({
         </CardActionArea>
         <motion.div layoutId={`content-container-${id}`}>
           <CardContent className={classes.content}>
-            <Typography variant="h6" component="h2">
-              {title}
-            </Typography>
-            <Typography variant="body2" component="p" color="textSecondary">
-              {content}
-            </Typography>
+            <motion.div layoutId={`content-body-${id}`}>
+              <Typography variant="h6" component="h2">
+                {title}
+              </Typography>
+              <Typography variant="body2" component="p" color="textSecondary">
+                {content}
+              </Typography>
+            </motion.div>
           </CardContent>
           <CardActions className={classes.action}>
             <Button
