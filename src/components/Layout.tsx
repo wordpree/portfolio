@@ -5,8 +5,7 @@ import { Banner, Bio, Footer, Skills, Portfolio, ScrollBar } from "./index";
 
 const useStyles = makeStyles((theme) => ({
   main: {
-    background:
-      "linear-gradient(180deg,#fafafa 0%,rgba(133, 80, 252, 0.2) 100%)",
+    background: "linear-gradient(180deg,#fafafa 0%,#EEE9FA 100%)",
   },
   container: {
     [theme.breakpoints.down(400)]: {
@@ -30,8 +29,8 @@ const Layout = () => {
           <Bio />
           <Skills />
           <Portfolio />
-          <Footer />
         </Container>
+        <Footer />
       </section>
     </>
   );
