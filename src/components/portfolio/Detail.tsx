@@ -105,7 +105,7 @@ const Detail = ({
     >
       <div className={classes.overlay} onClick={() => handleDetail(false, 0)} />
       <div className={classes.container}>
-        <motion.div className={classes.article}>
+        <div className={classes.article}>
           <motion.div className={classes.header} animate>
             <Typography variant="h6" className={classes.title}>
               {title}
@@ -134,7 +134,7 @@ const Detail = ({
               <CustomBtn link={weblink}>View Website</CustomBtn>
             </CardActions>
           </Card>
-        </motion.div>
+        </div>
       </div>
     </motion.div>
   );
