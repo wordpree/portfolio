@@ -1,4 +1,5 @@
 import { Linkedin, Github, Email, Reddit } from "mdi-material-ui";
+import eshopping from "./assets/project/eshopping.jpg";
 import cvdTracking from "./assets/project/covid-19.jpg";
 import qldScenery from "./assets/project/qld-scenery.jpg";
 import travelus from "./assets/project/travelus.jpg";
@@ -7,6 +8,13 @@ import weather from "./assets/project/weather.jpg";
 export const portfolio = [
   {
     id: 1,
+    link: "",
+    img: eshopping,
+    title: "Bicycle Online",
+    content: "A full stack aws severless online shopping website ",
+  },
+  {
+    id: 2,
     link: "https://covids.social",
     img: cvdTracking,
     title: "Covid-19 Tracking",
@@ -14,7 +22,7 @@ export const portfolio = [
       "A SPA, utilizing Google Map API and coronavirus service, provides clean UI ",
   },
   {
-    id: 2,
+    id: 3,
     link: "https://travelus.life/",
     img: travelus,
     title: "Travel Guiding",
@@ -22,7 +30,7 @@ export const portfolio = [
       "consuming different web services,this SPA displays useful travel information ",
   },
   {
-    id: 3,
+    id: 4,
     link: "https://inspiring-weather.netlify.app/",
     img: weather,
     title: "Weather Forecast",
@@ -30,7 +38,7 @@ export const portfolio = [
       "A RESTful comsuming Application based on Google Place Api & Open weather map",
   },
   {
-    id: 4,
+    id: 5,
     link: "https://qld-natureside.netlify.app",
     img: qldScenery,
     title: "Qld Recreational Area",
@@ -63,11 +71,30 @@ export const socials = [
 export const details = [
   {
     id: 1,
+    img: eshopping,
+    title: "A online bicycle ecommerce website",
+    technique: [
+      "Full stack",
+      "Typescript",
+      "Serverless",
+      "Custom Hooks",
+      "Material-UI",
+      "Framer-motion",
+      "Responsive Design",
+      "AWS",
+    ],
+    description:
+      "Plan and develop from scratch for a ecommerce website. It implements AWS's Cognito, API Gateway, DynamoDB, lambda function as its back end. It integrates with paypal/strip payment gateway. --It is under developing",
+    gitlink: "https://github.com/wordpree/e-shopper",
+    weblink: "",
+  },
+  {
+    id: 2,
     img: cvdTracking,
     title: "A covid-19 information providing and case tracking website",
     technique: [
       "create-react-app",
-      "typescript",
+      "Typescript",
       "RESTful Application",
       "React Hooks",
       "Material-UI",
@@ -81,7 +108,7 @@ export const details = [
     weblink: "https://covids.social",
   },
   {
-    id: 2,
+    id: 3,
     img: travelus,
     title: "A Fully Data Consuming of Australia Travel Guide Website",
     technique: [
@@ -104,7 +131,7 @@ export const details = [
       "The original idea of this project is to build a general weather forecast web application leveraging Context Api and Open weather map RESTful service. However,not long after the small functionilty finished, the similarity of the search address became a obstacle when integrating Google Place Api seemed to be a preferable option. Imagination didn't like to be end here. Hence, I decided to implement some travel POIs web service to show beautiful scenery around Australia. The first try was tripadvisor Api and they turned me out since they choose selected clients. After that I have got the permission to use sygic travel Api with limited quota. It took several weeks to learn the data structure and different data request with satisfied content. My requst quota ran out at the same time the RESTful Application fully built in the website. But I came from a known-nothing mind to be the one that can requst specific data to display inside website.",
   },
   {
-    id: 3,
+    id: 4,
     img: weather,
     title: "A General Weather Forecast Application",
     technique: [
@@ -123,7 +150,7 @@ export const details = [
     weblink: "https://inspiring-weather.netlify.app",
   },
   {
-    id: 4,
+    id: 5,
     img: qldScenery,
     title: "A website is to display QLD parks with facilities and activities",
     technique: [
