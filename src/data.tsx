@@ -8,7 +8,7 @@ import weather from "./assets/project/weather.jpg";
 export const portfolio = [
   {
     id: 1,
-    link: "",
+    link: "https://bicycle-ecommerce.netlify.app",
     img: eshopping,
     title: "Bicycle Online",
     content: "A full stack aws severless online shopping website ",
@@ -86,7 +86,7 @@ export const details = [
     description:
       "Plan and develop from scratch for a ecommerce website. It implements AWS's Cognito, API Gateway, DynamoDB, lambda function as its back end. It integrates with paypal/strip payment gateway. --It is under developing",
     gitlink: "https://github.com/wordpree/e-shopper",
-    weblink: "",
+    weblink: "https://bicycle-ecommerce.netlify.app",
   },
   {
     id: 2,
