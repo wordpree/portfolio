@@ -1,84 +1,46 @@
 import React from "react";
-import { makeStyles, Typography, Button } from "@material-ui/core";
-import bgSm from "../assets/bgSm.svg";
-import bgLg from "../assets/bgLg.svg";
-import developer from "../assets/developer.svg";
+import { makeStyles, Typography } from "@material-ui/core";
+import profile from "../assets/profile.svg";
 import Social from "./Social";
-import Header from "./Header";
+import { ButtonWithIcon } from "./CusButton";
 
 const useStyle = makeStyles((theme) => ({
   root: {
     position: "relative",
-    minHeight: "100vh",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
-    backgroundImage: `url(${bgSm})`,
-    [theme.breakpoints.up("lg")]: {
-      backgroundImage: `url(${bgLg})`,
-    },
-  },
-  wrapper: {
     display: "flex",
     flexDirection: "column",
-    padding: "2rem 1rem",
-    [theme.breakpoints.up("lg")]: {
-      flexDirection: "row",
-    },
+    margin: "0 auto",
+    padding: "2em 1.75em 0",
+    background: "#FAFAFF",
   },
-  content: {
-    [theme.breakpoints.up("lg")]: {
-      position: "absolute",
-      top: "50%",
-      transform: "translateY(-50%)",
-      width: "50%",
-    },
-    textAlign: "center",
-    "&>p:first-child": {
-      fontWeight: "bold",
-      color: "#FC8E53",
-      [theme.breakpoints.up("lg")]: {
-        fontSize: "1.25rem",
-      },
+  photo: {
+    background: `center / cover no-repeat url(${profile})`,
+    height: 242,
+    width: 242,
+    margin: "0 auto",
+  },
+  article: {
+    margin: "3em auto",
+    "&>*": {
+      textAlign: "center",
+      marginBottom: "2rem",
+      [theme.breakpoints.up(768)]: { marginBottom: "2.5rem" },
     },
     "&>h2": {
       fontSize: "2rem",
       fontWeight: "bold",
-      color: "#8550FC",
-      [theme.breakpoints.up("lg")]: {
-        fontSize: "3.25rem",
+      color: "#444",
+      [theme.breakpoints.up(768)]: {
+        fontSize: "2.75rem",
+        lineHeight: 1.1,
       },
     },
-  },
-  description: {
-    padding: "1rem",
-    fontSize: "0.9rem",
-    [theme.breakpoints.up("lg")]: {
+    "&>p": {
       fontSize: "1rem",
+      color: "#7a7a7a",
     },
-  },
-  btnWrapper: {
-    margin: "2rem auto 0",
-    [theme.breakpoints.up("lg")]: {
-      margin: "4rem auto 0",
-    },
-
-    "&>button": {
-      fontWeight: "bold",
-      borderRadius: 25,
-    },
-  },
-  smIcon: {
-    display: "block",
-    [theme.breakpoints.up("lg")]: {
-      display: "none",
-    },
-    "&>img": {
-      width: "99%",
-      maxWidth: 448,
-      display: "block",
-      textAlign: "right",
-      margin: "0 auto",
+    "&>div": {
+      marginBottom: 0,
     },
   },
 }));
@@ -87,26 +49,21 @@ const Banner = () => {
   const classes = useStyle();
   return (
     <section className={classes.root}>
-      <Header />
-      <article className={classes.wrapper}>
-        <div className={classes.content}>
-          <Typography>Front-end React Developer</Typography>
-          <Typography variant="h2">Welcome To My Portfolio</Typography>
-          <Typography color="textSecondary" className={classes.description}>
-            A well-established software engineer with educational background and
-            passion <br /> for developing react website & application
-          </Typography>
-          <div className={classes.btnWrapper}>
-            <Button variant="contained" color="primary" href="#portfolio">
-              Look at the portfolio
-            </Button>
-          </div>
-          <Social />
-        </div>
-        <div className={classes.smIcon}>
-          <img src={developer} alt="developer" />
+      <div className={classes.photo} />
+      <article className={classes.article}>
+        <Typography variant="h2">
+          Think the Design,
+          <br /> Develop the Thinking.
+        </Typography>
+        <Typography>
+          A well-established software engineer with educational background and
+          passion <br /> for developing react website & application
+        </Typography>
+        <div>
+          <ButtonWithIcon />
         </div>
       </article>
+      <Social />
     </section>
   );
 };

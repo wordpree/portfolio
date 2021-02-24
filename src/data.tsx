@@ -1,4 +1,4 @@
-import { Linkedin, Github, Email, Reddit } from "mdi-material-ui";
+import { Linkedin, Github, Instagram, Codepen } from "mdi-material-ui";
 import eshopping from "./assets/project/eshopping.jpg";
 import cvdTracking from "./assets/project/covid-19.jpg";
 import qldScenery from "./assets/project/qld-scenery.jpg";
@@ -64,8 +64,8 @@ export const socials = [
     link: "https://www.linkedin.com/in/haijun-wang-8b4bab150/",
   },
   { Icon: Github, id: 2, link: "https://github.com/wordpree?tab=repositories" },
-  { Icon: Email, id: 3, link: "mailto:wanghaijun04@gmail.com" },
-  { Icon: Reddit, id: 4, link: "" },
+  { Icon: Instagram, id: 3, link: "mailto:wanghaijun04@gmail.com" },
+  { Icon: Codepen, id: 4, link: "" },
 ];
 
 export const details = [

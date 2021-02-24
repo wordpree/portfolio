@@ -1,7 +1,15 @@
 import React from "react";
 import { useViewportScroll, useTransform } from "framer-motion";
 import { Container, makeStyles } from "@material-ui/core";
-import { Banner, Bio, Footer, Skills, Portfolio, ScrollBar } from "./index";
+import {
+  Banner,
+  Bio,
+  Footer,
+  Skills,
+  Portfolio,
+  ScrollBar,
+  Header,
+} from "./index";
 
 const useStyles = makeStyles((theme) => ({
   main: {
@@ -23,15 +31,16 @@ const Layout = () => {
   return (
     <>
       <ScrollBar height={y} yOpacity={yOpacity} scale={scale} />
-      <Banner />
-      <section className={classes.main}>
-        <Container className={classes.container}>
+      <Header />
+      <main>
+        <Banner />
+        <section className={classes.main}>
           <Bio />
           <Skills />
           <Portfolio />
-        </Container>
-        <Footer />
-      </section>
+        </section>
+      </main>
+      <Footer />
     </>
   );
 };

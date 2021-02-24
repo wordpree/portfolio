@@ -1,3 +1,5 @@
+import { TMap } from "./type";
+
 export const indexRang = (
   min: number,
   max: number,
@@ -8,4 +10,11 @@ export const indexRang = (
   if (Math.abs(index) > max - slider) return -(max - slider);
   if (index > min) return min;
   return index;
+};
+
+export const navMenu: TMap = {
+  About: "/about",
+  Projects: "/projects",
+  Portfolio: "/portfolio",
+  Blog: "/blog",
 };

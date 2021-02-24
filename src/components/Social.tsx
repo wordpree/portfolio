@@ -10,10 +10,8 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 328,
     marginTop: "1rem",
     padding: "1rem",
-    [theme.breakpoints.up("sm")]: {
-      marginTop: "2rem",
-      padding: "2rem",
-    },
+    marginLeft: "auto",
+    marginRight: "auto",
   },
 }));
 
@@ -22,7 +20,7 @@ const Social = () => {
   return (
     <div className={classes.root}>
       {socials.map((s) => (
-        <Button key={s.id} color="primary" href={s.link} target="_blank">
+        <Button key={s.id} color="secondary" href={s.link} target="_blank">
           <s.Icon fontSize="small" />
         </Button>
       ))}
