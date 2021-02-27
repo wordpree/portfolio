@@ -21,3 +21,9 @@ export interface IMProps {
   width: number;
   duration: number;
 }
+
+export interface IBGProps {
+  bgColor: string;
+  children: React.ReactNode;
+  fullWidth: boolean;
+}

@@ -28,6 +28,7 @@ const ButtonWithIcon = () => {
   };
   return (
     <Button
+      arial-label="my projects"
       className={classes.btn}
       variant="contained"
       color="primary"

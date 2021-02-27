@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
 
   btn: {
     display: "none",
-    [theme.breakpoints.up("laptopSm")]: {
+    [theme.breakpoints.up("md")]: {
       color: "#52319B",
       fontSize: "0.75rem",
       fontWeight: "bold",
@@ -39,7 +39,12 @@ const Header = () => {
         <HeaderNav />
       </MediaQuery>
       <MobileNav />
-      <Button className={classes.btn} href={resume} target="_blank">
+      <Button
+        className={classes.btn}
+        href={resume}
+        target="_blank"
+        aria-label="pdf file"
+      >
         Resume
       </Button>
     </header>

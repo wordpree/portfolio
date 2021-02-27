@@ -5,13 +5,24 @@ import { socials } from "../data";
 const useStyles = makeStyles((theme) => ({
   root: {
     justifyContent: "space-between",
-    display: "inline-flex",
+    display: "flex",
     alignItems: "center",
     maxWidth: 328,
-    marginTop: "1rem",
     padding: "1rem",
     marginLeft: "auto",
     marginRight: "auto",
+    [theme.breakpoints.up("md")]: {
+      textAlign: "right",
+      maxWidth: "none",
+      position: "relative",
+      "&::before": {
+        content: "''",
+        display: "block",
+        height: 1,
+        width: "100%",
+        background: "rgba(112,112,112,0.24)",
+      },
+    },
   },
 }));
 

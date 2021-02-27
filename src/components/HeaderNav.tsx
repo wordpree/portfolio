@@ -5,9 +5,9 @@ import { navMenu } from "../utils";
 
 const useStyles = makeStyles((theme) => ({
   nav: {
-    [theme.breakpoints.up("laptopSm")]: {
+    [theme.breakpoints.up("md")]: {
       marginRight: "auto",
-      marginLeft: "2em",
+      marginLeft: "3em",
     },
   },
   lists: {
@@ -15,8 +15,9 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     padding: "1em",
     textAlign: "center",
-    [theme.breakpoints.up("laptopSm")]: {
+    [theme.breakpoints.up("md")]: {
       flexDirection: "row",
+      padding: 0,
     },
   },
   list: {
@@ -24,10 +25,14 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: "bold",
     letterSpacing: 1.8,
     "&:hover,&:focus": {
-      background: "#f0f0f0",
+      background: "#f2f2f2",
+      color: "#6937FF",
     },
-    [theme.breakpoints.up("laptopSm")]: {
-      padding: "1.5em 3em",
+    [theme.breakpoints.up("md")]: {
+      padding: "0.75em",
+      marginRight: "3em",
+      borderRadius: 4,
+      minWidth: 90,
     },
   },
 }));
@@ -35,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
 const HeaderNav: React.FC = () => {
   const classes = useStyles();
   return (
-    <nav className={classes.nav}>
+    <nav className={classes.nav} role="navigation">
       <ul className={classes.lists}>
         {Object.keys(navMenu).map((m) => (
           <li key={m} style={{ listStyle: "none" }} className={classes.list}>

@@ -6,7 +6,7 @@ import { IMProps } from "../type";
 const useStyles = makeStyles((theme) => ({
   menu: {
     cursor: "pointer",
-    [theme.breakpoints.up("laptopSm")]: {
+    [theme.breakpoints.up("md")]: {
       display: "none",
     },
     "&> div": {

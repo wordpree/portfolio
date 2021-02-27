@@ -17,7 +17,7 @@ const Logo = () => {
   return (
     <div>
       <Link to="/">
-        <img src={logo} className={classes.logo} alt="logo" />
+        <img src={logo} className={classes.logo} alt="homepage logo" />
       </Link>
     </div>
   );
