@@ -15,7 +15,7 @@ import {
   Article,
   ProjectCards,
 } from "./index";
-import Sidebar from "./Sidebar";
+import Sidebar from "./Sidebar_1";
 import { projectArticle } from "../data";
 
 const useStyles = makeStyles((theme) => ({
