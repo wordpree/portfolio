@@ -5,7 +5,7 @@ import { ButtonWithIcon } from "./CusButton";
 
 const useStyle = makeStyles((theme) => ({
   root: {
-    padding: "2em 0 0",
+    padding: "7em 0 0",
   },
   hero: {
     position: "relative",
@@ -48,10 +48,11 @@ const useStyle = makeStyles((theme) => ({
       },
     },
     "&>h2": {
+      fontFamily: "Lobster",
+      letterSpacing: 5,
       fontSize: "1.875rem",
       fontWeight: "bold",
       color: "#444",
-      letterSpacing: 1,
       [theme.breakpoints.up(360)]: {
         fontSize: "2rem",
       },
@@ -62,7 +63,6 @@ const useStyle = makeStyles((theme) => ({
       },
       [theme.breakpoints.up("lg")]: {
         fontSize: "3.5rem",
-        lineHeight: "70px",
       },
     },
     "&>p": {

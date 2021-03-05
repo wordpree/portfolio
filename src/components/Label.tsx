@@ -19,6 +19,8 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
     fontWeight: 700,
     textTransform: "uppercase",
+    boxShadow: "2px 4px 6px rgba(0,0,0,0.14)",
+    borderRadius: 5,
   },
 }));
 
