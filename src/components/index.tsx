@@ -9,5 +9,4 @@ export { default as ScrollBar } from "./ScrollBar";
 export { default as Contact } from "./Contact";
 export { default as Social } from "./Social";
 export { default as Article } from "./Article";
-export { default as Sidebar } from "./Sidebar";
 export { default as ProjectCards } from "./ProjectCards";

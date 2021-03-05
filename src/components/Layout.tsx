@@ -1,4 +1,5 @@
 import React from "react";
+import Toast from "./Toast";
 import { useViewportScroll, useTransform } from "framer-motion";
 import { makeStyles, Container } from "@material-ui/core";
 import {
@@ -12,11 +13,10 @@ import {
   Contact,
   Social,
   Article,
-  Sidebar,
   ProjectCards,
 } from "./index";
+import Sidebar from "./Sidebar";
 import { projectArticle } from "../data";
-import Toast from "./Toast";
 
 const useStyles = makeStyles((theme) => ({
   root: {
