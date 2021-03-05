@@ -27,3 +27,26 @@ export interface IBGProps {
   children: React.ReactNode;
   fullWidth: boolean;
 }
+
+export interface IAProps {
+  content: string;
+  title: string;
+  subtitle?: string;
+}
+
+export interface IPCProps {
+  title: string;
+  subtitle: string;
+  img: string;
+  label: string[];
+  content: string;
+  id: number;
+  bgColor: string;
+}
+
+export interface ILProps {
+  label: string[];
+  color: string;
+}
+
+export type TSlice = (data: IPCProps[]) => IPCProps[];

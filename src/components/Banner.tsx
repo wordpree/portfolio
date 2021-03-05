@@ -5,9 +5,7 @@ import { ButtonWithIcon } from "./CusButton";
 
 const useStyle = makeStyles((theme) => ({
   root: {
-    margin: "0 auto",
     padding: "2em 0 0",
-    textAlign: "center",
   },
   hero: {
     position: "relative",
@@ -18,6 +16,7 @@ const useStyle = makeStyles((theme) => ({
       padding: "2em 1.75em 0",
       flexDirection: "row-reverse",
       marginBottom: "4.375em",
+      alignItems: "center",
     },
   },
   photo: {
@@ -26,22 +25,27 @@ const useStyle = makeStyles((theme) => ({
     width: 276,
     margin: "0 auto 5em",
     [theme.breakpoints.up("md")]: {
-      margin: "0 auto",
+      margin: 0,
+      height: 308,
+      width: 308,
     },
     [theme.breakpoints.up("lg")]: {
-      height: 378,
-      width: 378,
+      height: 368,
+      width: 368,
     },
   },
   article: {
-    margin: "0 auto",
     [theme.breakpoints.up("md")]: {
-      flex: "0 1 55%",
+      marginRight: "auto",
+      maxWidth: "57.825%",
     },
     "&>*": {
       textAlign: "center",
       marginBottom: "2rem",
-      [theme.breakpoints.up("md")]: { marginBottom: "2.5rem" },
+      [theme.breakpoints.up("md")]: {
+        marginBottom: "2.5rem",
+        textAlign: "left",
+      },
     },
     "&>h2": {
       fontSize: "1.875rem",
@@ -52,9 +56,9 @@ const useStyle = makeStyles((theme) => ({
         fontSize: "2rem",
       },
       [theme.breakpoints.up("md")]: {
-        fontSize: "2.5rem",
-        lineHeight: 1.1,
         marginRight: "auto",
+        fontSize: "3rem",
+        lineHeight: 1.2,
       },
       [theme.breakpoints.up("lg")]: {
         fontSize: "3.5rem",
@@ -66,9 +70,11 @@ const useStyle = makeStyles((theme) => ({
       color: "#444",
       letterSpacing: 1.2,
       maxWidth: 475,
+      margin: "0 auto",
       [theme.breakpoints.up("md")]: {
         fontWeight: 400,
         maxWidth: "none",
+        fontSize: "1.125rem",
       },
       [theme.breakpoints.up("lg")]: {
         fontSize: "1.125rem",

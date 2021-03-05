@@ -4,6 +4,16 @@ import cvdTracking from "./assets/project/covid-19.jpg";
 import qldScenery from "./assets/project/qld-scenery.jpg";
 import travelus from "./assets/project/travelus.jpg";
 import weather from "./assets/project/weather.jpg";
+import computer from "./assets/project/computer.svg";
+
+const color = [
+  "#D59210",
+  "#3973C4",
+  "#6937FF",
+  "#CA6446",
+  "#52225D",
+  "#26233D",
+];
 
 export const portfolio = [
   {
@@ -47,6 +57,80 @@ export const portfolio = [
   },
 ];
 
+export const projects = [
+  {
+    id: 0,
+    label: ["web", "ux/ui"],
+    link: "https://bicycle-ecommerce.netlify.app",
+    img: computer,
+    title: "LANDING PAGE",
+    subtitle: "Computer Service",
+    content: "Updating and Modernizing design of a Local Store.",
+    bgColor: color[0],
+  },
+  {
+    id: 1,
+    label: ["web", "planning"],
+    link: "https://bicycle-ecommerce.netlify.app",
+    img: eshopping,
+    title: "ONLINE SHOP",
+    subtitle: "AWS Application",
+    content: "Building a Severless Online Shopping Website.",
+    bgColor: color[1],
+  },
+  {
+    id: 2,
+    label: ["ux/ui", "web"],
+    link: "https://covids.social",
+    img: cvdTracking,
+    title: "COVID19 Statistics",
+    subtitle: "Restful API",
+    content:
+      "Utilizing Google Map API and coronavirus service to build a clean UI.",
+    bgColor: color[2],
+  },
+  {
+    id: 3,
+    label: ["redux/saga", "ux/ui"],
+    link: "https://travelus.life/",
+    img: travelus,
+    title: "Travel Guiding",
+    subtitle: "Multiple Integrate",
+    content:
+      "consuming different web services,this SPA displays useful travel information.",
+    bgColor: color[3],
+  },
+  {
+    id: 4,
+    label: ["restfull", "design"],
+    link: "https://inspiring-weather.netlify.app/",
+    img: weather,
+    title: "Weather Forecast",
+    subtitle: "Open Weather Maps",
+    content: "Display hourly,daily and weekly weather on different locations.",
+    bgColor: color[4],
+  },
+  {
+    id: 5,
+    label: ["web", "headless"],
+    link: "https://qld-natureside.netlify.app",
+    img: qldScenery,
+    title: "Qld Parks",
+    subtitle: "Headless CMS",
+    content:
+      "A website showing Qld parks which data is based on Contentful CMS",
+    bgColor: color[5],
+  },
+];
+
+export type T = typeof projects;
+
+export const projectArticle = {
+  title: "My Projects",
+  content:
+    "Check out some featured projects, which the progress can be seen clearly, I have been working on",
+};
+
 export const skills = [
   { label: "HTML", percentage: 90 },
   { label: "CSS", percentage: 85 },
@@ -61,11 +145,27 @@ export const socials = [
   {
     Icon: Linkedin,
     id: 1,
+    description: "linkedin",
     link: "https://www.linkedin.com/in/haijun-wang-8b4bab150/",
   },
-  { Icon: Github, id: 2, link: "https://github.com/wordpree?tab=repositories" },
-  { Icon: Instagram, id: 3, link: "mailto:wanghaijun04@gmail.com" },
-  { Icon: Codepen, id: 4, link: "" },
+  {
+    Icon: Github,
+    id: 2,
+    description: "github",
+    link: "https://github.com/wordpree?tab=repositories",
+  },
+  {
+    Icon: Instagram,
+    id: 3,
+    description: "instagram",
+    link: "mailto:wanghaijun04@gmail.com",
+  },
+  {
+    Icon: Codepen,
+    id: 4,
+    description: "codesandbox",
+    link: "https://codesandbox.io/u/wordpree",
+  },
 ];
 
 export const details = [

@@ -10,9 +10,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SideBar = () => {
+const Sidebar = () => {
   const classes = useStyles();
   return <div className={classes.root}></div>;
 };
 
-export default SideBar;
+export default Sidebar;

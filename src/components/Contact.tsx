@@ -6,7 +6,7 @@ const useStyles = makeStyles((theme) => ({
   btn: {
     position: "fixed",
     right: 24,
-    top: "35%",
+    top: "80%",
     background: "rgba(105,55,255,0.65)",
     minWidth: 98,
     fontWeight: 600,

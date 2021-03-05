@@ -1,5 +1,5 @@
 import React from "react";
-import { makeStyles, Button } from "@material-ui/core";
+import { makeStyles, IconButton } from "@material-ui/core";
 import { socials } from "../data";
 
 const useStyles = makeStyles((theme) => ({
@@ -24,6 +24,11 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
+  icon: {
+    "&:hover,&:focus": {
+      background: "rgba(0,0,0,0.09)",
+    },
+  },
 }));
 
 const Social = () => {
@@ -31,9 +36,16 @@ const Social = () => {
   return (
     <div className={classes.root}>
       {socials.map((s) => (
-        <Button key={s.id} color="secondary" href={s.link} target="_blank">
+        <IconButton
+          key={s.id}
+          color="secondary"
+          href={s.link}
+          target="_blank"
+          aria-label={s.description}
+          className={classes.icon}
+        >
           <s.Icon fontSize="small" />
-        </Button>
+        </IconButton>
       ))}
     </div>
   );

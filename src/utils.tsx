@@ -18,3 +18,9 @@ export const navMenu: TMap = {
   Portfolio: "/portfolio",
   Blog: "/blog",
 };
+
+// export const withProjects = (slice: TSlice) => (Wrapper: React.FC) => {
+//   return (props: any) => (
+//     <Wrapper {...props} projects={(data: IPCProps[]) => slice(data)} />
+//   );
+// };

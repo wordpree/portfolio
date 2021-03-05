@@ -11,8 +11,12 @@ import {
   Header,
   Contact,
   Social,
+  Article,
+  Sidebar,
+  ProjectCards,
 } from "./index";
-import SideBar from "./SideBar";
+import { projectArticle } from "../data";
+import Toast from "./Toast";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -23,6 +27,7 @@ const useStyles = makeStyles((theme) => ({
   main: {
     // background: "linear-gradient(180deg,#fafafa 0%,#EEE9FA 100%)",
     background: "#fff",
+    marginTop: "4rem",
   },
   hero: {
     background: "#FAFAFF",
@@ -43,7 +48,8 @@ const Layout = () => {
   const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.5, 0.8, 1]);
   return (
     <>
-      {/* <ScrollBar height={y} yOpacity={yOpacity} scale={scale} /> */}
+      <Toast />
+      <ScrollBar height={y} yOpacity={yOpacity} scale={scale} />
       <Contact />
       <div className={classes.root}>
         <div className={classes.hero}>
@@ -53,14 +59,18 @@ const Layout = () => {
           </Container>
           <Social />
         </div>
-        <SideBar />
+        <Sidebar />
       </div>
       <main>
-        <section className={classes.main}>
-          <Bio />
-          <Skills />
-          <Portfolio />
-        </section>
+        <Container>
+          <section className={classes.main}>
+            <Article {...projectArticle} />
+            <ProjectCards />
+            <Bio />
+            <Skills />
+            <Portfolio />
+          </section>
+        </Container>
       </main>
       <Footer />
     </>

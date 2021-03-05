@@ -6,7 +6,6 @@ import { makeStyles, Button } from "@material-ui/core";
 const useStyles = makeStyles((theme) => ({
   btn: {
     fontWeight: "bold",
-    borderRadius: 25,
   },
   cr: {
     display: "flex",
