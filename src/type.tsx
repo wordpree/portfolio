@@ -48,5 +48,3 @@ export interface ILProps {
   label: string[];
   color: string;
 }
-
-export type TSlice = (data: IPCProps[]) => IPCProps[];

@@ -25,9 +25,11 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   main: {
-    // background: "linear-gradient(180deg,#fafafa 0%,#EEE9FA 100%)",
     background: "#fff",
-    marginTop: "4rem",
+    marginTop: "6rem",
+    [theme.breakpoints.up("sm")]: {
+      padding: "1em 3em",
+    },
   },
   hero: {
     background: "#FAFAFF",

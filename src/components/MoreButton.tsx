@@ -10,6 +10,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     border: "1px solid #d0d0d0",
     margin: "0 auto",
+    boxShadow: "2px 4px 10px rgba(0,0,0,0.16)",
     "&>*": {
       color: "#444",
     },

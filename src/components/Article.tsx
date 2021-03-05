@@ -4,7 +4,8 @@ import { IAProps } from "../type";
 
 const useStyles = makeStyles((theme) => ({
   article: {
-    marginBottom: "4.5em",
+    maxWidth: "61.25rem",
+    margin: "0 auto 3.5em",
     "&>*": {
       textAlign: "center",
       color: "#444",
@@ -20,6 +21,31 @@ const useStyles = makeStyles((theme) => ({
       letterSpacing: 1.1,
       fontWeight: 500,
       color: "#444",
+    },
+    [theme.breakpoints.up("md")]: {
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      "&>h3": {
+        fontSize: "2.25rem",
+        paddingBottom: 0,
+      },
+      "&>p": {
+        fontSize: "1.2rem",
+        maxWidth: "40%",
+        textAlign: "left",
+        lineHeight: 1.8,
+        position: "relative",
+        "&::before": {
+          content: "''",
+          display: "block",
+          height: "100%",
+          width: 1,
+          background: "#444",
+          position: "absolute",
+          left: -16,
+        },
+      },
     },
   },
 }));
