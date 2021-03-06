@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import {
   Card,
@@ -10,7 +10,7 @@ import {
 import { IPCProps } from "../type";
 import { cardMediaVariants, cardGesture } from "../motion";
 import CardArticle from "./CardArticle";
-import useAnimation from "./useAnimation";
+import MotionWrapper from "./MotionWrapper";
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -90,16 +90,14 @@ const MotionMedia = (props: any) => {
 const ProjectCard: React.FC<IPCProps> = (props) => {
   const classes = useStyles();
   const { img, bgColor, ...rest } = props;
-  const ref = useRef<HTMLDivElement>(null);
-  const [animation] = useAnimation(ref);
+  const isAnimate = (animate: boolean) => (animate ? "visible" : "hidden");
   return (
-    <motion.div
-      ref={ref}
-      initial="hidden"
-      animate={animation ? "visible" : "hidden"}
-      whileHover="hover"
-      whileTap="tap"
+    <MotionWrapper
       variants={cardGesture}
+      tap="tap"
+      hover="hover"
+      initial="inital"
+      isAnimate={isAnimate}
     >
       <Card className={classes.card} raised style={{ background: bgColor }}>
         <CardActionArea className={classes.action}>
@@ -113,7 +111,7 @@ const ProjectCard: React.FC<IPCProps> = (props) => {
           </CardContent>
         </CardActionArea>
       </Card>
-    </motion.div>
+    </MotionWrapper>
   );
 };
 

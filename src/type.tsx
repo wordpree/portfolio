@@ -1,3 +1,5 @@
+import { Variants, AnimationProps, VariantLabels } from "framer-motion";
+
 export type TDetail = {
   id: number;
   img: string;
@@ -57,3 +59,12 @@ export type TRef =
   | React.RefObject<HTMLDivElement>
   | null
   | undefined;
+
+export interface IMWProps {
+  children: React.ReactNode;
+  variants: Variants;
+  initial: string;
+  isAnimate(animate: boolean): AnimationProps["animate"];
+  hover: string;
+  tap: string;
+}
