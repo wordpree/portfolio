@@ -38,6 +38,8 @@ const useStyles = makeStyles((theme) => ({
       borderBottomRightRadius: 50,
       flexGrow: 1,
       paddingBottom: "6.375em",
+      boxShadow: "1px 1px 12px rgba(0,0,0,0.1)",
+      zIndex: 1,
     },
   },
 }));

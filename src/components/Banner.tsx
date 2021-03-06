@@ -5,7 +5,10 @@ import { ButtonWithIcon } from "./CusButton";
 
 const useStyle = makeStyles((theme) => ({
   root: {
-    padding: "7em 0 0",
+    padding: "3em 0 0",
+    [theme.breakpoints.up("md")]: {
+      padding: "7em 0 0",
+    },
   },
   hero: {
     position: "relative",

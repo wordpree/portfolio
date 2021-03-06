@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useRef } from "react";
+import { motion } from "framer-motion";
 import {
   Card,
   makeStyles,
   CardActionArea,
-  Typography,
   CardContent,
   CardMedia,
 } from "@material-ui/core";
-import Label from "./Label";
 import { IPCProps } from "../type";
+import { cardMediaVariants, cardGesture } from "../motion";
+import CardArticle from "./CardArticle";
+import useAnimation from "./useAnimation";
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -18,6 +20,10 @@ const useStyles = makeStyles((theme) => ({
     marginRight: "auto",
     [theme.breakpoints.up("md")]: {
       marginBottom: "6em",
+    },
+  },
+  action: {
+    [theme.breakpoints.up("md")]: {
       padding: "3em 1em",
     },
   },
@@ -77,29 +83,37 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ProjectCard: React.FC<IPCProps> = ({
-  subtitle,
-  title,
-  img,
-  label,
-  content,
-  bgColor,
-}) => {
+const MotionMedia = (props: any) => {
+  return <motion.div {...props} variants={cardMediaVariants} />;
+};
+
+const ProjectCard: React.FC<IPCProps> = (props) => {
   const classes = useStyles();
+  const { img, bgColor, ...rest } = props;
+  const ref = useRef<HTMLDivElement>(null);
+  const [animation] = useAnimation(ref);
   return (
-    <Card className={classes.card} raised style={{ background: bgColor }}>
-      <CardActionArea>
-        <CardContent className={classes.content}>
-          <article className={classes.article}>
-            <Typography variant="subtitle2">{subtitle}</Typography>
-            <Typography variant="h4">{title}</Typography>
-            <Typography>{content}</Typography>
-            <Label color={bgColor} label={label} />
-          </article>
-          <CardMedia image={img} className={classes.media} />
-        </CardContent>
-      </CardActionArea>
-    </Card>
+    <motion.div
+      ref={ref}
+      initial="hidden"
+      animate={animation ? "visible" : "hidden"}
+      whileHover="hover"
+      whileTap="tap"
+      variants={cardGesture}
+    >
+      <Card className={classes.card} raised style={{ background: bgColor }}>
+        <CardActionArea className={classes.action}>
+          <CardContent className={classes.content}>
+            <CardArticle {...{ ...rest, bgColor }} />
+            <CardMedia
+              image={img}
+              className={classes.media}
+              component={MotionMedia}
+            />
+          </CardContent>
+        </CardActionArea>
+      </Card>
+    </motion.div>
   );
 };
 

@@ -7,10 +7,10 @@ import weather from "./assets/project/weather.jpg";
 import computer from "./assets/project/computer.svg";
 
 const color = [
-  "#D59210",
-  "#3973C4",
-  "#6937FF",
-  "#CA6446",
+  "#AA750D",
+  "#295593",
+  "#4D30A4",
+  "#994831",
   "#52225D",
   "#26233D",
 ];

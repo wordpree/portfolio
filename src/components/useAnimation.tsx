@@ -6,10 +6,14 @@ type Animation = [boolean, React.Dispatch<React.SetStateAction<boolean>>];
 const useAnimation = (ref: React.RefObject<HTMLDivElement>): Animation => {
   const [animation, setAnimation] = useState(false);
   useEffect(() => {
-    const handleScroll = throttle(250, () => {
-      const topOfVp = ref.current && ref.current.getBoundingClientRect().top;
-      if (topOfVp && topOfVp < 380) {
-        setAnimation(true);
+    const handleScroll = throttle(200, () => {
+      if (ref && ref.current) {
+        const eleTop = ref.current.getBoundingClientRect().top;
+        const eleHeight = ref.current.offsetHeight;
+        const height = window.innerHeight;
+        setAnimation(height - eleTop > eleHeight / 3);
+      } else {
+        setAnimation(false);
       }
     });
     window.addEventListener("scroll", handleScroll);

@@ -34,17 +34,26 @@ export interface IAProps {
   subtitle?: string;
 }
 
-export interface IPCProps {
+export interface ICAProps {
   title: string;
   subtitle: string;
-  img: string;
   label: string[];
   content: string;
-  id: number;
   bgColor: string;
+}
+
+export interface IPCProps extends ICAProps {
+  img: string;
+  id: number;
 }
 
 export interface ILProps {
   label: string[];
   color: string;
 }
+
+export type TRef =
+  | ((instance: HTMLDivElement | null) => void)
+  | React.RefObject<HTMLDivElement>
+  | null
+  | undefined;

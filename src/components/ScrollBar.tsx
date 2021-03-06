@@ -11,7 +11,7 @@ interface ISProps {
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "none",
-    [theme.breakpoints.up(1024)]: {
+    [theme.breakpoints.up("xl")]: {
       display: "flex",
       zIndex: 999,
       position: "fixed",
