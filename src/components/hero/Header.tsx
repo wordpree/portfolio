@@ -3,8 +3,8 @@ import { makeStyles, Button } from "@material-ui/core";
 import HeaderNav from "./HeaderNav";
 import Logo from "./Logo";
 import MobileNav from "./MobileNav";
-import MediaQuery from "./useMedia";
-import resume from "../assets/cv/resume.pdf";
+import MediaQuery from "../useMedia";
+import resume from "../../assets/cv/resume.pdf";
 
 const useStyles = makeStyles((theme) => ({
   header: {

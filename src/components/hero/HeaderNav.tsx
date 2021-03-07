@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core";
 import { Link } from "react-router-dom";
-import { navMenu } from "../utils";
+import { navMenu } from "../../utils";
 
 const useStyles = makeStyles((theme) => ({
   nav: {

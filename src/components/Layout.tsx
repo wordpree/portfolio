@@ -4,19 +4,15 @@ import { useViewportScroll, useTransform } from "framer-motion";
 import { makeStyles, Container } from "@material-ui/core";
 import {
   Banner,
-  Bio,
   Footer,
-  Skills,
-  Portfolio,
   ScrollBar,
   Header,
   Contact,
   Social,
-  Article,
-  ProjectCards,
+  Projects,
   Sidebar,
+  Skill,
 } from "./index";
-import { projectArticle } from "../data";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,21 +20,14 @@ const useStyles = makeStyles((theme) => ({
       display: "flex",
     },
   },
-  main: {
-    background: "#fff",
-    marginTop: "8rem",
-    [theme.breakpoints.up("sm")]: {
-      padding: "1em 3em",
-    },
-  },
   hero: {
     background: "#FAFAFF",
     paddingBottom: "3em",
+    boxShadow: "1px 1px 12px rgba(0,0,0,0.1)",
     [theme.breakpoints.up("lg")]: {
       borderBottomRightRadius: 50,
       flexGrow: 1,
       paddingBottom: "6.375em",
-      boxShadow: "1px 1px 12px rgba(0,0,0,0.1)",
       zIndex: 1,
     },
   },
@@ -66,15 +55,8 @@ const Layout = () => {
         <Sidebar />
       </div>
       <main>
-        <Container>
-          <section className={classes.main}>
-            <Article {...projectArticle} />
-            <ProjectCards />
-            <Bio />
-            <Skills />
-            <Portfolio />
-          </section>
-        </Container>
+        <Projects />
+        <Skill />
       </main>
       <Footer />
     </>

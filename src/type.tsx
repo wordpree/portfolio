@@ -1,4 +1,4 @@
-import { Variants, AnimationProps, VariantLabels } from "framer-motion";
+import { Variants, AnimationProps } from "framer-motion";
 
 export type TDetail = {
   id: number;
@@ -68,3 +68,9 @@ export interface IMWProps {
   hover: string;
   tap: string;
 }
+
+export interface IIProps {
+  Icon(props: any): JSX.Element;
+  name: string;
+}
+export type TSkillIcons = IIProps[];

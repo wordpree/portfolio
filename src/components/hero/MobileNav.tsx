@@ -1,7 +1,7 @@
 import React from "react";
 import { withStyles, createStyles, Theme } from "@material-ui/core";
 import HeaderNav from "./HeaderNav";
-import { ModalProvider, ModalBase } from "./Modal";
+import { ModalProvider, ModalBase } from "../Modal";
 import MobileMenu from "./MobileMenu";
 
 const modalStyles = (theme: Theme) =>

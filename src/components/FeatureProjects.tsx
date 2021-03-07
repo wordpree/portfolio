@@ -1,6 +1,6 @@
 import React from "react";
 import { projects } from "../data";
-import Projects from "./Projects";
+import Projects from "./projects/Projects";
 
 const FeatureProjects = () => {
   return <Projects projects={projects} />;

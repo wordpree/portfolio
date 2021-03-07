@@ -1,5 +1,5 @@
 import React from "react";
-import { ILProps } from "../type";
+import { ILProps } from "../../type";
 import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({

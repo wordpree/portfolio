@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core";
-import logo from "../assets/logo.svg";
+import logo from "../../assets/logo.svg";
 
 const useStyles = makeStyles((theme) => ({
   logo: {

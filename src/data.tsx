@@ -5,6 +5,7 @@ import qldScenery from "./assets/project/qld-scenery.jpg";
 import travelus from "./assets/project/travelus.jpg";
 import weather from "./assets/project/weather.jpg";
 import computer from "./assets/project/computer.svg";
+import * as icon from "./components/IconComponents";
 
 const color = [
   "#AA750D",
@@ -129,6 +130,12 @@ export const projectArticle = {
   title: "My Projects",
   content:
     "Check out some featured projects, which the progress can be seen clearly, I have been working on",
+};
+
+export const skillArticle = {
+  title: "What Can I Provide",
+  content:
+    "I had five years’ experience in software development of which three years were in commercial environments of large international ICT companies. I have a deep understanding of commercial goals and software development life cycle.",
 };
 
 export const skills = [
@@ -266,4 +273,16 @@ export const details = [
     gitlink: "https://github.com/wordpree/qld-natureside",
     weblink: "https://qld-natureside.netlify.app",
   },
+];
+
+export const skillLists = [
+  { Icon: icon.HtmlIcon, name: "html" },
+  { Icon: icon.CssIcon, name: "css" },
+  { Icon: icon.MongodbIcon, name: "noSql" },
+  { Icon: icon.JSIcon, name: "JS" },
+  { Icon: icon.GraphqlIcon, name: "graphQl" },
+  { Icon: icon.ReactIcon, name: "react" },
+  { Icon: icon.ReduxIcon, name: "redux" },
+  { Icon: icon.MaterialIcon, name: "material" },
+  { Icon: icon.AWSIcon, name: "aws" },
 ];

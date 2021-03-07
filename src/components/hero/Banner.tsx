@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles, Typography } from "@material-ui/core";
-import profile from "../assets/profile.png";
-import { ButtonWithIcon } from "./CusButton";
+import profile from "../../assets/profile.png";
+import { ButtonWithIcon } from "../CusButton";
 
 const useStyle = makeStyles((theme) => ({
   root: {

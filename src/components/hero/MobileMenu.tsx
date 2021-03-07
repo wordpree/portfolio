@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core";
-import { useDialogContext } from "./Modal";
-import { IMProps } from "../type";
+import { useDialogContext } from "../Modal";
+import { IMProps } from "../../type";
 
 const useStyles = makeStyles((theme) => ({
   menu: {

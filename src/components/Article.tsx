@@ -4,10 +4,10 @@ import { IAProps } from "../type";
 
 const useStyles = makeStyles((theme) => ({
   article: {
-    maxWidth: "61.25rem",
+    maxWidth: "65rem",
     margin: "0 auto 3.5em",
     "&>*": {
-      textAlign: "center",
+      textAlign: "left",
       color: "#444",
     },
     "&>h3": {
@@ -17,18 +17,22 @@ const useStyles = makeStyles((theme) => ({
       paddingBottom: "1em",
     },
     "&>p": {
-      fontSize: "0.875rem",
-      letterSpacing: 1.1,
+      fontSize: "1rem",
+      letterSpacing: 1.2,
       fontWeight: 500,
       color: "#444",
+      textAlign: "left",
+      maxWidth: 740,
     },
     [theme.breakpoints.up("md")]: {
+      marginBottom: "5.5em",
       display: "flex",
       justifyContent: "space-between",
       alignItems: "center",
       "&>h3": {
         fontSize: "2.25rem",
         paddingBottom: 0,
+        textAlign: "center",
       },
       "&>p": {
         fontSize: "1.2rem",

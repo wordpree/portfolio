@@ -7,14 +7,14 @@ import {
   CardContent,
   CardMedia,
 } from "@material-ui/core";
-import { IPCProps } from "../type";
-import { cardMediaVariants, cardGesture } from "../motion";
+import { IPCProps } from "../../type";
+import { cardMediaVariants, cardGesture } from "../../motion";
 import CardArticle from "./CardArticle";
-import MotionWrapper from "./MotionWrapper";
+import MotionWrapper from "../MotionWrapper";
 
 const useStyles = makeStyles((theme) => ({
   card: {
-    marginBottom: "2.75em",
+    marginBottom: "2.75rem",
     maxWidth: "61.25rem",
     marginLeft: "auto",
     marginRight: "auto",

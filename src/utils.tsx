@@ -1,4 +1,5 @@
-import { TMap } from "./type";
+import React from "react";
+import { TMap, IIProps, TSkillIcons } from "./type";
 
 export const indexRang = (
   min: number,
@@ -24,3 +25,6 @@ export const navMenu: TMap = {
 //     <Wrapper {...props} projects={(data: IPCProps[]) => slice(data)} />
 //   );
 // };
+
+export const mapToComponent = (list: TSkillIcons) => (Com: React.FC<IIProps>) =>
+  list.map((l) => <Com {...l} key={l.name} />);

@@ -3,8 +3,8 @@ import { motion } from "framer-motion";
 import { makeStyles } from "@material-ui/core";
 import Label from "./Label";
 
-import { cardArticleChild, cardArticleParent } from "../motion";
-import { ICAProps } from "../type";
+import { cardArticleChild, cardArticleParent } from "../../motion";
+import { ICAProps } from "../../type";
 
 const useStyles = makeStyles((theme) => ({
   article: {
