@@ -12,6 +12,7 @@ import {
   Projects,
   Sidebar,
   Skill,
+  Portfolio,
 } from "./index";
 
 const useStyles = makeStyles((theme) => ({
@@ -57,6 +58,7 @@ const Layout = () => {
       <main>
         <Projects />
         <Skill />
+        <Portfolio />
       </main>
       <Footer />
     </>
