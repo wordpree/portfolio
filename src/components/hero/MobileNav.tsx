@@ -7,9 +7,10 @@ import MobileMenu from "./MobileMenu";
 const modalStyles = (theme: Theme) =>
   createStyles({
     root: {
-      top: "70px !important",
+      top: "95.7px !important",
+      overflow: "auto",
       "&>div:first-child": {
-        top: 70,
+        top: 95.7,
       },
     },
     container: {

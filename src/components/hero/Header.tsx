@@ -9,10 +9,13 @@ import resume from "../../assets/cv/resume.pdf";
 const useStyles = makeStyles((theme) => ({
   header: {
     display: "flex",
-    minHeight: 70,
+    minHeight: 90,
     justifyContent: "space-between",
     alignItems: "center",
-    padding: "1em 2em",
+    padding: "1.875rem",
+    [theme.breakpoints.up("md")]: {
+      padding: "3rem 1.875rem",
+    },
   },
 
   btn: {
