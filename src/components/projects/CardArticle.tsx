@@ -9,11 +9,14 @@ import { ICAProps } from "../../type";
 const useStyles = makeStyles((theme) => ({
   article: {
     padding: "1em",
-    marginBottom: "3em",
+    [theme.breakpoints.up("sm")]: {
+      marginBottom: "3em",
+    },
     [theme.breakpoints.up("md")]: {
       alignSelf: "center",
       padding: "3em",
       maxWidth: "40%",
+      marginBottom: 0,
     },
     "& > h4": {
       color: "#fff",
@@ -24,6 +27,7 @@ const useStyles = makeStyles((theme) => ({
     },
     "& > h6": {
       color: "#fafafa",
+      fontSize: "0.875rem",
       [theme.breakpoints.up("md")]: {
         fontSize: "1.25rem",
         marginBottom: "1.875em",
