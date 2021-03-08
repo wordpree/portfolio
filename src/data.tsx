@@ -286,3 +286,10 @@ export const skillLists = [
   { Icon: icon.MaterialIcon, name: "material" },
   { Icon: icon.AWSIcon, name: "aws" },
 ];
+
+export const skillLable = [
+  "Web Design",
+  "Adobe Suite",
+  "UX/UI Design",
+  "Web Development",
+];

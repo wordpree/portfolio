@@ -1,12 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core";
-import { motion, MotionValue } from "framer-motion";
-
-interface ISProps {
-  height: MotionValue<number>;
-  yOpacity: MotionValue<number>;
-  scale: MotionValue<number>;
-}
+import { motion } from "framer-motion";
+import { useViewportScroll, useTransform } from "framer-motion";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -16,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
       zIndex: 999,
       position: "fixed",
       bottom: "2%",
-      left: "2%",
+      left: "1%",
       flexDirection: "column",
       alignItems: "center",
     },
@@ -44,7 +39,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ScrollBar = ({ height, yOpacity, scale }: ISProps) => {
+const ScrollBar = () => {
+  const { scrollYProgress } = useViewportScroll();
+  const height = useTransform(scrollYProgress, [0, 1], [0, 350]);
+  const yOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [0, 0.5, 1]);
+  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.5, 0.8, 1]);
   const classes = useStyles();
   return (
     <div className={classes.root}>

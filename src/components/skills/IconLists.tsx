@@ -10,11 +10,9 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "space-between",
     padding: 0,
     margin: 0,
-    "&:first-child": { marginBottom: "1.25em" },
-    "&:last-child": { marginTop: "1.25em" },
+    "&:first-child": { marginBottom: "3em" },
     [theme.breakpoints.up("md")]: {
-      "&:first-child": { marginBottom: "2.8125em" },
-      "&:last-child": { marginTop: "2.8125em" },
+      "&:last-child": { marginTop: "3em" },
     },
   },
 }));

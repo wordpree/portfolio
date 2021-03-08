@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { makeStyles } from "@material-ui/core";
-import Label from "./Label";
+import Label from "../Label";
 
 import { cardArticleChild, cardArticleParent } from "../../motion";
 import { ICAProps } from "../../type";
@@ -58,7 +58,7 @@ const CardArticle: React.FC<ICAProps> = ({
       <motion.h6 variants={cardArticleChild}>{subtitle}</motion.h6>
       <motion.h4 variants={cardArticleChild}>{title}</motion.h4>
       <motion.p variants={cardArticleChild}>{content}</motion.p>
-      <Label color={bgColor} label={label} />
+      <Label borderColor={bgColor} label={label} />
     </motion.div>
   );
 };

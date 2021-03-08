@@ -13,3 +13,4 @@ export { default as Sidebar } from "./Sidebar";
 export { default as ProjectCards } from "./projects/ProjectCards";
 export { default as Skill } from "./skills/";
 export { default as Projects } from "./projects/";
+export { default as Hero } from "./hero";

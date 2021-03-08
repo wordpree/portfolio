@@ -51,7 +51,9 @@ export interface IPCProps extends ICAProps {
 
 export interface ILProps {
   label: string[];
-  color: string;
+  borderColor?: string;
+  color?: string;
+  flexPos?: string;
 }
 
 export type TRef =

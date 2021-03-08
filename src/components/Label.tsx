@@ -1,5 +1,5 @@
 import React from "react";
-import { ILProps } from "../../type";
+import { ILProps } from "../type";
 import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
@@ -7,13 +7,13 @@ const useStyles = makeStyles((theme) => ({
     padding: 0,
     margin: 0,
     display: "flex",
-    justifyContent: "space-between",
+    flexWrap: "wrap",
   },
   list: {
     background: "rgba(255,255,255,0.14)",
     listStyle: "none",
-    minWidth: 116,
-    padding: "0.25em 0.75em",
+    minWidth: 169,
+    padding: "0.5em 1.5em",
     color: "#fff",
     fontSize: "0.9rem",
     textAlign: "center",
@@ -21,20 +21,27 @@ const useStyles = makeStyles((theme) => ({
     textTransform: "uppercase",
     boxShadow: "2px 4px 6px rgba(0,0,0,0.14)",
     borderRadius: 5,
+    marginRight: "0.5em",
+    marginBottom: "1em",
   },
 }));
 
-const Label: React.FC<ILProps> = ({ label, color }) => {
+const Label: React.FC<ILProps> = ({
+  label,
+  borderColor,
+  color = "#fff",
+  flexPos = "flex-start",
+}) => {
   const classes = useStyles();
   return (
-    <ul className={classes.lists}>
+    <ul className={classes.lists} style={{ justifyContent: flexPos }}>
       {label.map((_, i) => (
         <li
           key={i}
           className={classes.list}
-          style={{ border: `1px solid ${color}` }}
+          style={{ border: borderColor ? `1px solid ${borderColor}` : 0 }}
         >
-          <span>{_}</span>
+          <span style={{ color }}>{_}</span>
         </li>
       ))}
     </ul>

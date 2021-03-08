@@ -2,16 +2,23 @@ import React from "react";
 import { Container, makeStyles } from "@material-ui/core";
 import Tech from "./Tech";
 import Skill from "./Skill";
+import Sidebar from "../Sidebar";
 import Article from "../Article";
 import { skillArticle } from "../../data";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
+  section: {
+    [theme.breakpoints.up("lg")]: {
+      display: "flex",
+    },
+  },
+  main: {
     background: "#F9F9F9",
-    padding: "5em 1em",
+    padding: "6em 1em",
     boxShadow: "-1px -1px 12px rgba(0,0,0,0.1)",
     [theme.breakpoints.up("lg")]: {
       borderTopLeftRadius: 50,
+      flex: 1,
     },
   },
 }));
@@ -19,13 +26,16 @@ const useStyles = makeStyles((theme) => ({
 const Index = () => {
   const classes = useStyles();
   return (
-    <div className={classes.root}>
-      <Container>
-        <Article {...skillArticle} />
-        <Tech />
-        <Skill />
-      </Container>
-    </div>
+    <section className={classes.section}>
+      <Sidebar />
+      <div className={classes.main}>
+        <Container>
+          <Article {...skillArticle} />
+          <Tech />
+          <Skill />
+        </Container>
+      </div>
+    </section>
   );
 };
 

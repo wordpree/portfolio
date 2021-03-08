@@ -6,12 +6,19 @@ import { skillLists } from "../../data";
 const useStyles = makeStyles((theme) => ({
   wrapper: {
     overflow: "auto",
+    padding: "3.5em 0",
+    borderTop: "1px solid #d0d0d0",
     [theme.breakpoints.up("md")]: {
       marginTop: "6.25rem",
+      borderTop: 0,
     },
   },
   line: {
-    background: "#DBDBDB",
+    display: "none",
+    [theme.breakpoints.up("md")]: {
+      background: "#DBDBDB",
+      display: "block",
+    },
   },
 }));
 

@@ -18,6 +18,9 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: "61.25rem",
     marginLeft: "auto",
     marginRight: "auto",
+    [theme.breakpoints.between(500, 960)]: {
+      width: "95%",
+    },
     [theme.breakpoints.up("md")]: {
       marginBottom: "6em",
     },
@@ -75,7 +78,7 @@ const useStyles = makeStyles((theme) => ({
       paddingTop: "56.25%",
     },
     [theme.breakpoints.up("md")]: {
-      flex: "0 0 60%",
+      flex: "0 0 55%",
       paddingTop: 0,
       backgroundSize: "cover",
       backgroundPosition: "0 0",

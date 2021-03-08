@@ -35,8 +35,7 @@ const useStyles = makeStyles((theme) => ({
         textAlign: "center",
       },
       "&>p": {
-        fontSize: "1.2rem",
-        maxWidth: "40%",
+        maxWidth: "50%",
         textAlign: "left",
         lineHeight: 1.8,
         position: "relative",
