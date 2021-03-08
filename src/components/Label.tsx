@@ -23,6 +23,9 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 5,
     marginRight: "0.5em",
     marginBottom: "1em",
+    [theme.breakpoints.up("md")]: {
+      minWidth: "auto",
+    },
   },
 }));
 
