@@ -7,7 +7,7 @@ interface IEProps {
 
 const useStyle = makeStyles((theme) => ({
   section: {
-    margin: "4rem auto 0",
+    margin: "4rem auto",
     padding: "0.25rem",
     [theme.breakpoints.up(768)]: {
       padding: "1.25rem",

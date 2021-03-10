@@ -8,6 +8,9 @@ const useStyles = makeStyles((theme) => ({
     color: "#fafafa",
     padding: "1rem",
     textAlign: "center",
+    [theme.breakpoints.up("md")]: {
+      textAlign: "left",
+    },
   },
 }));
 

@@ -13,6 +13,9 @@ const useStyles = makeStyles((theme) => ({
     },
     [theme.breakpoints.up("md")]: {
       flexDirection: "row",
+      margin: 0,
+      marginLeft: "2rem",
+      alignItems: "center",
       "&>div": {
         flexDirection: "column",
       },
@@ -25,12 +28,16 @@ const styles = (theme: Theme) =>
     lists: {
       display: "flex",
       padding: 0,
+      flexWrap: "wrap",
       [theme.breakpoints.up("md")]: {
         flexDirection: "column",
+        textAlign: "left",
       },
     },
     list: {
-      marginRight: "1em",
+      [theme.breakpoints.up("md")]: {
+        marginBottom: "1em",
+      },
     },
     link: {
       color: "#fff",
