@@ -1,5 +1,6 @@
 import React from "react";
 import Toast from "./Toast";
+import { Container } from "@material-ui/core";
 import {
   Footer,
   ScrollBar,
@@ -9,6 +10,7 @@ import {
   Skill,
   Portfolio,
 } from "./index";
+import { default as NewSkills } from "./Skills";
 
 const Layout = () => {
   return (
@@ -19,8 +21,11 @@ const Layout = () => {
       <Hero />
       <main>
         <Projects />
-        <Skill />
         <Portfolio />
+        <Container>
+          <NewSkills />
+        </Container>
+        <Skill />
       </main>
       <Footer />
     </>

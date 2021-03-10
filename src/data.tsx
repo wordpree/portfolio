@@ -139,13 +139,15 @@ export const skillArticle = {
 };
 
 export const skills = [
-  { label: "HTML", percentage: 90 },
-  { label: "CSS", percentage: 85 },
-  { label: "ES6", percentage: 75 },
-  { label: "Reactjs", percentage: 75 },
+  { label: "HTML", percentage: 95 },
+  { label: "CSS", percentage: 90 },
+  { label: "ES6", percentage: 85 },
+  { label: "Reactjs", percentage: 85 },
   { label: "Typescript", percentage: 70 },
   { label: "Redux", percentage: 70 },
   { label: "Redux-Saga", percentage: 70 },
+  { label: "Bootstrap", percentage: 75 },
+  { label: "Material Css", percentage: 85 },
 ];
 
 export const socials = [

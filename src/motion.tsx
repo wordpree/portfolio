@@ -13,7 +13,7 @@ export const skillsBarVariants = (width: string) => ({
 });
 
 export const skillsImgVariants = {
-  hidden: { x: 350, opacity: 0 },
+  hidden: { x: 80, opacity: 0 },
   visible: {
     x: 0,
     opacity: 1,

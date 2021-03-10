@@ -24,6 +24,9 @@ const useStyles = makeStyles((theme) => ({
     },
     [theme.breakpoints.up("md")]: {
       marginBottom: "6em",
+      // "&:last-child": {
+      //   marginBottom: 0,
+      // },
     },
   },
   action: {
