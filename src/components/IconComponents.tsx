@@ -9,6 +9,7 @@ import reduxIcon from "@iconify-icons/logos/redux";
 import graphqlIcon from "@iconify-icons/logos/graphql";
 import materialUi from "@iconify-icons/logos/material-ui";
 import awsIcon from "@iconify-icons/logos/aws";
+import phpIcon from "@iconify-icons/logos/php";
 
 const MongodbIcon = (props: any) => {
   return <Icon {...props} color="#589636" icon={mongodbIcon}></Icon>;
@@ -40,6 +41,9 @@ const MaterialIcon = (props: any) => {
 const AWSIcon = (props: any) => {
   return <Icon {...props} icon={awsIcon}></Icon>;
 };
+const PhpIcon = (props: any) => {
+  return <Icon {...props} icon={phpIcon} color="#474A8A" />;
+};
 export {
   MongodbIcon,
   HtmlIcon,
@@ -50,4 +54,5 @@ export {
   GraphqlIcon,
   MaterialIcon,
   AWSIcon,
+  PhpIcon,
 };

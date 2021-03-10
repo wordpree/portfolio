@@ -287,6 +287,7 @@ export const skillLists = [
   { Icon: icon.ReduxIcon, name: "redux" },
   { Icon: icon.MaterialIcon, name: "material" },
   { Icon: icon.AWSIcon, name: "aws" },
+  { Icon: icon.PhpIcon, name: "Php" },
 ];
 
 export const skillLable = [
