@@ -1,0 +1,57 @@
+import React from "react";
+import { makeStyles, createStyles, Theme, withStyles } from "@material-ui/core";
+import MenuNav from "../MenuNav";
+import Social from "../Social";
+
+const useStyles = makeStyles((theme) => ({
+  site: {
+    display: "flex",
+    margin: "1rem auto 0",
+    flexDirection: "column",
+    "& >div >a": {
+      color: "#fefefe",
+    },
+    [theme.breakpoints.up("md")]: {
+      flexDirection: "row",
+      "&>div": {
+        flexDirection: "column",
+      },
+    },
+  },
+}));
+
+const styles = (theme: Theme) =>
+  createStyles({
+    lists: {
+      display: "flex",
+      padding: 0,
+      [theme.breakpoints.up("md")]: {
+        flexDirection: "column",
+      },
+    },
+    list: {
+      marginRight: "1em",
+    },
+    link: {
+      color: "#fff",
+      textDecoration: "none",
+      padding: "0.25em 0.75em",
+      "&::hover,&::focus": {
+        textDecoration: "underline",
+      },
+    },
+  });
+
+const Nav = withStyles(styles)(MenuNav);
+
+const Site = () => {
+  const classes = useStyles();
+  return (
+    <div className={classes.site}>
+      <Nav />
+      <Social />
+    </div>
+  );
+};
+
+export default Site;

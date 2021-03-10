@@ -1,7 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core";
-import logo from "../../assets/logo.svg";
+
+interface ILProps {
+  img: string;
+}
 
 const useStyles = makeStyles((theme) => ({
   logo: {
@@ -12,12 +15,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Logo = () => {
+const Logo: React.FC<ILProps> = ({ img }) => {
   const classes = useStyles();
   return (
     <div>
       <Link to="/">
-        <img src={logo} className={classes.logo} alt="homepage logo" />
+        <img src={img} className={classes.logo} alt="homepage logo" />
       </Link>
     </div>
   );

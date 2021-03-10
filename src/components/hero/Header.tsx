@@ -5,6 +5,7 @@ import Logo from "./Logo";
 import MobileNav from "./MobileNav";
 import MediaQuery from "../useMedia";
 import resume from "../../assets/cv/resume.pdf";
+import logo from "../../assets/logo.svg";
 
 const useStyles = makeStyles((theme) => ({
   header: {
@@ -37,7 +38,7 @@ const Header = () => {
   const classes = useStyles();
   return (
     <header className={classes.header}>
-      <Logo />
+      <Logo img={logo} />
       <MediaQuery query={960}>
         <HeaderNav />
       </MediaQuery>

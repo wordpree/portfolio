@@ -9,7 +9,7 @@ import * as icon from "./components/IconComponents";
 
 const color = [
   "#AA750D",
-  "#295593",
+  "#0672A6",
   "#4D30A4",
   "#994831",
   "#52225D",
