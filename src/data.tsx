@@ -4,7 +4,7 @@ import cvdTracking from "./assets/project/covid-19.jpg";
 import qldScenery from "./assets/project/qld-scenery.jpg";
 import travelus from "./assets/project/travelus.jpg";
 import weather from "./assets/project/weather.jpg";
-import computer from "./assets/project/computer.svg";
+import computer from "./assets/project/computer.png";
 import * as icon from "./components/IconComponents";
 
 const color = [
