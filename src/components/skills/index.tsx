@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
   main: {
     background: "#F9F9F9",
     padding: "6em 1em",
-    boxShadow: "-1px -1px 12px rgba(0,0,0,0.1)",
+    boxShadow: "0px -8px 8px -8px rgba(0,0,0,0.1)",
     [theme.breakpoints.up("lg")]: {
       borderTopLeftRadius: 50,
       flex: 1,

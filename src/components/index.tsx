@@ -1,12 +1,14 @@
 export { default as Banner } from "./hero/Banner";
 export { default as Bio } from "./Bio";
 export { default as Entry } from "./Entry";
-export { default as Header } from "./hero/Header";
+export { default as Header } from "./header";
 export { default as Skills } from "./Skills";
 export { default as Portfolio } from "./portfolio";
 export { default as ScrollBar } from "./ScrollBar";
 export { default as Contact } from "./Contact";
 export { default as Social } from "./Social";
+export { default as ScrollTop } from "./ScrollTop";
+export { default as MoreButton } from "./MoreButton";
 export { default as Article } from "./Article";
 export { default as Sidebar } from "./Sidebar";
 export { default as ProjectCards } from "./projects/ProjectCards";

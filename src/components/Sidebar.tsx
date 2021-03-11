@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Sidebar = () => {
   const classes = useStyles();
-  return <div className={classes.root}></div>;
+  return <div className={classes.root} />;
 };
 
 export default Sidebar;

@@ -49,6 +49,10 @@ export interface IPCProps extends ICAProps {
   id: number;
 }
 
+export interface IPCSProps {
+  projects: IPCProps[];
+}
+
 export interface ILProps {
   label: string[];
   borderColor?: string;

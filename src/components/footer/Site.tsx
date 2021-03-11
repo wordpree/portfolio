@@ -1,6 +1,6 @@
 import React from "react";
 import { makeStyles, createStyles, Theme, withStyles } from "@material-ui/core";
-import MenuNav from "../MenuNav";
+import NavLists from "../header/NavLists";
 import Social from "../Social";
 
 const useStyles = makeStyles((theme) => ({
@@ -49,13 +49,13 @@ const styles = (theme: Theme) =>
     },
   });
 
-const Nav = withStyles(styles)(MenuNav);
+const FooterNav = withStyles(styles)(NavLists);
 
 const Site = () => {
   const classes = useStyles();
   return (
     <div className={classes.site}>
-      <Nav />
+      <FooterNav />
       <Social />
     </div>
   );

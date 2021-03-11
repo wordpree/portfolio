@@ -1,14 +1,13 @@
 import React from "react";
-import Projects from "./Projects";
-import MoreButton from "../MoreButton";
-import { projects } from "../../data";
+import ProjectCard from "./ProjectCard";
+import { IPCSProps } from "../../type";
 
-const ProjectCards: React.FC = () => {
-  const sliceData = projects.slice(0, 4);
+const ProjectCards: React.FC<IPCSProps> = ({ projects }) => {
   return (
     <>
-      <Projects projects={sliceData} />
-      <MoreButton />
+      {projects.map((_) => (
+        <ProjectCard {..._} key={_.id} />
+      ))}
     </>
   );
 };

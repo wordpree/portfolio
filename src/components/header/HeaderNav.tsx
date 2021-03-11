@@ -1,6 +1,6 @@
 import React from "react";
-import { makeStyles, createStyles, Theme, withStyles } from "@material-ui/core";
-import MenuNav from "../MenuNav";
+import { makeStyles, withStyles, Theme, createStyles } from "@material-ui/core";
+import NavLists from "./NavLists";
 
 const useStyles = makeStyles((theme) => ({
   nav: {
@@ -25,6 +25,19 @@ const styles = (theme: Theme) =>
     list: {
       fontWeight: "bold",
       letterSpacing: 1.8,
+      padding: "0.5rem",
+      [theme.breakpoints.up("md")]: {
+        marginRight: "2.5rem",
+        borderRadius: 4,
+        minWidth: 90,
+      },
+    },
+    link: {
+      textDecoration: "none",
+      color: "inherit",
+      width: "100%",
+      padding: "1.25rem",
+      display: "inline-block",
       position: "relative",
       zIndex: 1,
       "&:hover,&:focus": {
@@ -50,31 +63,18 @@ const styles = (theme: Theme) =>
         transformOrigin: "left",
       },
       [theme.breakpoints.up("md")]: {
-        padding: "0.25em 1.25em",
-        marginRight: "1.5rem",
-        borderRadius: 4,
-        minWidth: 90,
-      },
-    },
-    link: {
-      textDecoration: "none",
-      color: "inherit",
-      width: "100%",
-      padding: "1.25rem",
-      display: "inline-block",
-      [theme.breakpoints.up("md")]: {
-        padding: "0.25rem 1.25rem",
+        padding: "0.5rem 1.5rem",
       },
     },
   });
 
-const Nav = withStyles(styles)(MenuNav);
+const HeaderNavLists = withStyles(styles)(NavLists);
 
 const HeaderNav: React.FC = () => {
   const classes = useStyles();
   return (
     <nav className={classes.nav} role="navigation">
-      <Nav />
+      <HeaderNavLists />
     </nav>
   );
 };

@@ -1,6 +1,6 @@
 import React from "react";
 import { Divider, makeStyles, Container } from "@material-ui/core";
-import Logo from "../hero/Logo";
+import Logo from "../header/Logo";
 import Site from "./Site";
 import Address from "./Address";
 import Form from "./Form";

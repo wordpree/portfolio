@@ -6,7 +6,7 @@ import { useViewportScroll, useTransform } from "framer-motion";
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "none",
-    [theme.breakpoints.up("xl")]: {
+    [theme.breakpoints.up("lg")]: {
       display: "flex",
       zIndex: 999,
       position: "fixed",

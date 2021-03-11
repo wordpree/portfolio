@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const MobileMenu: React.FC<IMProps> = ({
+const MobileMenuIcon: React.FC<IMProps> = ({
   height = 2,
   width = 26,
   duration = 300,
@@ -49,4 +49,4 @@ const MobileMenu: React.FC<IMProps> = ({
   );
 };
 
-export default MobileMenu;
+export default MobileMenuIcon;

@@ -18,18 +18,15 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: "61.25rem",
     marginLeft: "auto",
     marginRight: "auto",
-    paddingBottom: "2em",
     [theme.breakpoints.between(500, 960)]: {
       width: "95%",
     },
     [theme.breakpoints.up("md")]: {
       marginBottom: "6em",
-      // "&:last-child": {
-      //   marginBottom: 0,
-      // },
     },
   },
   action: {
+    padding: "2em 0.5em",
     [theme.breakpoints.up("md")]: {
       padding: "3em 1em",
     },

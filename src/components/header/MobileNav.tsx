@@ -1,8 +1,8 @@
 import React from "react";
 import { withStyles, createStyles, Theme } from "@material-ui/core";
 import HeaderNav from "./HeaderNav";
-import { ModalProvider, ModalBase } from "../Modal";
-import MobileMenu from "./MobileMenu";
+import { ModalBase } from "../Modal";
+import MobileMenuIcon from "./MobileMenuIcon";
 
 const modalStyles = (theme: Theme) =>
   createStyles({
@@ -25,12 +25,12 @@ const Modal = withStyles(modalStyles)(ModalBase);
 
 const MobileNav = () => {
   return (
-    <ModalProvider>
-      <MobileMenu width={26} height={2} duration={300} />
+    <>
+      <MobileMenuIcon width={26} height={2} duration={300} />
       <Modal>
         <HeaderNav />
       </Modal>
-    </ModalProvider>
+    </>
   );
 };
 
