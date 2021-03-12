@@ -1,4 +1,4 @@
-import { Linkedin, Github, Instagram, Codepen } from "mdi-material-ui";
+import { Linkedin, Github, Codepen } from "mdi-material-ui";
 import eshopping from "./assets/project/eshopping.jpg";
 import cvdTracking from "./assets/project/covid-19.jpg";
 import qldScenery from "./assets/project/qld-scenery.jpg";
@@ -164,10 +164,11 @@ export const socials = [
     link: "https://github.com/wordpree?tab=repositories",
   },
   {
-    Icon: Instagram,
+    Icon: icon.DribbbleIcon,
     id: 3,
-    description: "instagram",
-    link: "mailto:wanghaijun04@gmail.com",
+    description: "dribbble",
+    // link: "mailto:wanghaijun04@gmail.com",
+    link: "https://dribbble.com/hai111",
   },
   {
     Icon: Codepen,

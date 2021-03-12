@@ -10,6 +10,11 @@ import graphqlIcon from "@iconify-icons/logos/graphql";
 import materialUi from "@iconify-icons/logos/material-ui";
 import awsIcon from "@iconify-icons/logos/aws";
 import phpIcon from "@iconify-icons/logos/php";
+import dribbblealtIcon from "@iconify-icons/whh/dribbblealt";
+
+const DribbbleIcon = (props: any) => {
+  return <Icon {...props} icon={dribbblealtIcon} height={16}></Icon>;
+};
 
 const MongodbIcon = (props: any) => {
   return <Icon {...props} color="#589636" icon={mongodbIcon}></Icon>;
@@ -55,4 +60,5 @@ export {
   MaterialIcon,
   AWSIcon,
   PhpIcon,
+  DribbbleIcon,
 };
