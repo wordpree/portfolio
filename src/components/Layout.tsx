@@ -19,11 +19,11 @@ const Layout = () => {
         <Route path="/" exact>
           <Home />
         </Route>
-        <Route path={`/projects`} exact>
+        <Route path={`/projects`}>
           <ScrollTop />
           <Project projects={projects} />
         </Route>
-        <Route path={`/blog`} exact>
+        <Route path={`/blog`}>
           <ScrollTop />
           <Blog />
         </Route>
