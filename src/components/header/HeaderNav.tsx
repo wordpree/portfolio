@@ -1,5 +1,6 @@
 import React from "react";
 import { makeStyles, withStyles, Theme, createStyles } from "@material-ui/core";
+import { useDialogContext } from "../Modal";
 import NavLists from "./NavLists";
 
 const useStyles = makeStyles((theme) => ({
@@ -72,9 +73,10 @@ const HeaderNavLists = withStyles(styles)(NavLists);
 
 const HeaderNav: React.FC = () => {
   const classes = useStyles();
+  const { setOpen } = useDialogContext();
   return (
     <nav className={classes.nav} role="navigation">
-      <HeaderNavLists />
+      <HeaderNavLists handleModal={(status) => setOpen(status)} />
     </nav>
   );
 };

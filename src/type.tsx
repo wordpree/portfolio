@@ -12,7 +12,7 @@ export type TDetail = {
 };
 
 export type TMap = { [key: string]: string };
-type TSet = React.Dispatch<React.SetStateAction<boolean>>;
+export type TSet = React.Dispatch<React.SetStateAction<boolean>>;
 export type TDialogCtx = {
   open: boolean;
   setOpen: TSet;
@@ -80,3 +80,10 @@ export interface IIProps {
   name: string;
 }
 export type TSkillIcons = IIProps[];
+
+export interface ISSProps {
+  brief: string;
+  snippet: string;
+  refer: string;
+  improve?: string;
+}

@@ -35,9 +35,9 @@ const MobileMenuIcon: React.FC<IMProps> = ({
   duration = 300,
 }) => {
   const classes = useStyles();
-  const { open, setOpen } = useDialogContext();
+  const { open, handleModal } = useDialogContext();
   return (
-    <div className={classes.menu} onClick={() => setOpen((prev) => !prev)}>
+    <div className={classes.menu} onClick={handleModal}>
       {[...Array(3)].map((_, key) => (
         <div
           key={key}
