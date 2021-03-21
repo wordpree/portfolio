@@ -1,20 +1,11 @@
 import React from "react";
 import Toast from "./Toast";
 import { Route, Switch } from "react-router-dom";
-import { Container } from "@material-ui/core";
-import {
-  Footer,
-  ScrollBar,
-  Hero,
-  Header,
-  Contact,
-  Projects,
-  Skill,
-  Portfolio,
-  ScrollTop,
-  MoreButton,
-} from "./index";
-import { default as NewSkills } from "./Skills";
+import { Footer, ScrollBar, Header, Contact, ScrollTop } from "./index";
+import Home from "./pages/Home";
+import Blog from "./pages/Blog";
+import Project from "./pages/Project";
+
 import { projects } from "../data";
 
 const Layout = () => {
@@ -26,20 +17,15 @@ const Layout = () => {
       <Header />
       <Switch>
         <Route path="/" exact>
-          <Hero />
-          <main>
-            <Projects projects={projects.slice(0, 4)} />
-            <MoreButton />
-            <Portfolio />
-            <Container>
-              <NewSkills />
-            </Container>
-            <Skill />
-          </main>
+          <Home />
         </Route>
         <Route path={`/projects`} exact>
           <ScrollTop />
-          <Projects projects={projects} />
+          <Project projects={projects} />
+        </Route>
+        <Route path={`/blog`} exact>
+          <ScrollTop />
+          <Blog />
         </Route>
       </Switch>
       <Footer />

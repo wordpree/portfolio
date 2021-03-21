@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles, Container } from "@material-ui/core";
 import Article from "../Article";
-import ProjectCards from "./ProjectCards";
+import ProjectCards from "../projects/ProjectCards";
 import { projectArticle } from "../../data";
 import { IPCSProps } from "../../type";
 
@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Index: React.FC<IPCSProps> = ({ projects }) => {
+const Project: React.FC<IPCSProps> = ({ projects }) => {
   const classes = useStyles();
   return (
     <Container>
@@ -28,4 +28,4 @@ const Index: React.FC<IPCSProps> = ({ projects }) => {
   );
 };
 
-export default Index;
+export default Project;
