@@ -1,4 +1,6 @@
 import React from "react";
+import nightOwl from "prism-react-renderer/themes/nightOwl";
+import Highlight, { defaultProps } from "prism-react-renderer";
 import { Typography, makeStyles, Button } from "@material-ui/core";
 import { ISSProps } from "../type";
 
@@ -13,16 +15,6 @@ const useStyles = makeStyles((theme) => ({
       [theme.breakpoints.up("md")]: {},
     },
   },
-  code: {
-    textAlign: "left",
-    overflow: "auto",
-
-    background: "#444",
-    color: "#fffffa",
-    marginLeft: "auto",
-    marginRight: "auto",
-    borderRadius: 8,
-  },
   btn: {
     textTransform: "initial",
     fontWeight: 700,
@@ -34,6 +26,30 @@ const useStyles = makeStyles((theme) => ({
     position: "relative",
     borderLeft: "5px solid #4D30A4",
     paddingLeft: "0.75em",
+  },
+  pre: {
+    textAlign: "left",
+    margin: "1em 0",
+    padding: "0.75em",
+    overflow: "scroll",
+    fontSize: "0.9375rem",
+    "&>div": {
+      display: "table-row",
+    },
+    "& .token-line": {
+      lineHeight: "1.3em",
+      height: "1.3em",
+    },
+    "&>div >span:nth-child(1)": {
+      display: "table-cell",
+      textAlign: "right",
+      paddingRight: "1em",
+      userSelect: "none",
+      opacity: "0.5",
+    },
+    "&>div >span:nth-child(2)": {
+      display: "table-cell",
+    },
   },
 }));
 const SingleSnippet: React.FC<ISSProps> = ({
@@ -49,9 +65,27 @@ const SingleSnippet: React.FC<ISSProps> = ({
       <Typography className={classes.improve}>
         {improve ? improve : null}
       </Typography>
-      <pre className={classes.code}>
-        <code>{snippet}</code>
-      </pre>
+      <Highlight
+        {...defaultProps}
+        code={snippet.trim()}
+        language="jsx"
+        theme={nightOwl}
+      >
+        {({ className, style, tokens, getLineProps, getTokenProps }) => (
+          <pre className={`${className} ${classes.pre}`} style={style}>
+            {tokens.map((line, i) => (
+              <div key={i} {...getLineProps({ line, key: i })}>
+                <span>{i + 1}</span>
+                <span>
+                  {line.map((token, key) => (
+                    <span key={key} {...getTokenProps({ token, key })} />
+                  ))}
+                </span>
+              </div>
+            ))}
+          </pre>
+        )}
+      </Highlight>
       <Button
         href={refer}
         className={classes.btn}

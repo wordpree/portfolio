@@ -21,6 +21,7 @@
     "@types/throttle-debounce": "^2.1.0",
     "framer-motion": "^2.3.0",
     "mdi-material-ui": "^6.17.0",
+    "prism-react-renderer": "^1.2.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",

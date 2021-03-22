@@ -303,53 +303,52 @@ export const codeBlog = [
     brief:
       "Build customized Modal wrapper with Context API based on Material-UI component.",
     snippet: `
-    import React, { useContext, createContext, useState } from "react";
-    import { Dialog, Slide } from "@material-ui/core";
-    import { TransitionProps } from "@material-ui/core/transitions";
-    import { TDialogCtx } from "../type";
+import React, { useContext, createContext, useState } from "react";
+import { Dialog, Slide } from "@material-ui/core";
+import { TransitionProps } from "@material-ui/core/transitions";
+import { TDialogCtx } from "../type";
 
-    const DialogContext = createContext<unknown>(null);
-    const useDialogContext = () => {
-      const context = useContext(DialogContext) as TDialogCtx;
-      if (!context) {
-        throw new Error(dialogContext should be used within its Provider);
-      }
-      return context;
-    };
+const DialogContext = createContext<unknown>(null);
+const useDialogContext = () => {
+  const context = useContext(DialogContext) as TDialogCtx;
+  if (!context) {
+    throw new Error(dialogContext should be used within its Provider);
+  }
+  return context;
+};
 
-    const ModalProvider: React.FC = (props) => {
-      const [open, setOpen] = useState(false);
-      const handleModal = () => setOpen((prev) => !prev);
-      const value = { open, setOpen, handleModal } as TDialogCtx;
-      return <DialogContext.Provider value={value} {...props} />;
-    };
+const ModalProvider: React.FC = (props) => {
+  const [open, setOpen] = useState(false);
+  const handleModal = () => setOpen((prev) => !prev);
+  const value = { open, setOpen, handleModal } as TDialogCtx;
+  return <DialogContext.Provider value={value} {...props} />;
+};
 
-    const Transition = React.forwardRef(
-      (
-        props: TransitionProps & { children?: React.ReactElement<any, any> },
-        ref: React.Ref<unknown>
-      ) => {
-        return <Slide ref={ref} {...props} />;
-      }
-    );
+const Transition = React.forwardRef(
+  (
+    props: TransitionProps & { children?: React.ReactElement<any, any> },
+    ref: React.Ref<unknown>
+  ) => {
+    return <Slide ref={ref} {...props} />;
+  }
+);
 
-    const ModalBase: React.FC = (props) => {
-      const { open, setOpen } = useDialogContext();
-      return (
-        <Dialog
-          {...props}
-          open={open}
-          onClose={() => setOpen(false)}
-          fullWidth
-          TransitionComponent={Transition}
-          keepMounted
-          transitionDuration={300}
-        />
-      );
-    };
+const ModalBase: React.FC = (props) => {
+  const { open, setOpen } = useDialogContext();
+  return (
+    <Dialog
+      {...props}
+      open={open}
+      onClose={() => setOpen(false)}
+      fullWidth
+      TransitionComponent={Transition}
+      keepMounted
+      transitionDuration={300}
+    />
+  );
+};
 
-    export { ModalBase, ModalProvider, useDialogContext };
-    
+export { ModalBase, ModalProvider, useDialogContext }; 
 `,
     refer:
       "https://github.com/wordpree/portfolio/blob/master/src/components/Modal.tsx",
@@ -357,29 +356,29 @@ export const codeBlog = [
   {
     brief: "How to build a custom React Hook for local storage?",
     snippet: `
-    import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 
-    const useLocalStorage = (initialState = {}, key: string) => {
-      const [storage, setStorage] = useState(() => {
-        const storageInit = window.localStorage.getItem(key);
-        if (storageInit) {
-          return JSON.parse(storageInit);
-        }
-        return initialState;
-      });
-      const prevKeyRef = useRef(key);
-      useEffect(() => {
-        const prevKey = prevKeyRef.current;
-        if (prevKey !== key) {
-          window.localStorage.removeItem(prevKey);
-        }
-        prevKeyRef.current = key;
-        window.localStorage.setItem(key, JSON.stringify(storage));
-      }, [key, storage]);
-      return { storage, setStorage };
-    };
-            
-    export default useLocalStorage;
+const useLocalStorage = (initialState = {}, key: string) => {
+  const [storage, setStorage] = useState(() => {
+    const storageInit = window.localStorage.getItem(key);
+    if (storageInit) {
+      return JSON.parse(storageInit);
+    }
+    return initialState;
+  });
+  const prevKeyRef = useRef(key);
+  useEffect(() => {
+    const prevKey = prevKeyRef.current;
+    if (prevKey !== key) {
+      window.localStorage.removeItem(prevKey);
+    }
+    prevKeyRef.current = key;
+    window.localStorage.setItem(key, JSON.stringify(storage));
+  }, [key, storage]);
+  return { storage, setStorage };
+};
+        
+export default useLocalStorage;
     `,
     refer:
       "https://github.com/wordpree/local-weather/blob/master/src/useLocalStorage.tsx",
@@ -387,37 +386,37 @@ export const codeBlog = [
   {
     brief: "Write your own asynchronous fetching custom hook using useReducer.",
     snippet: `
-    import { useReducer, useCallback } from "react";
-    import { reducer } from "./util";
+import { useReducer, useCallback } from "react";
+import { reducer } from "./util";
 
-    function useAsync<T>() {
-      const [state, dispatch] = useReducer(reducer, {
-        data: null,
-        status: "idle",
-        error: null,
-      });
-      const run = useCallback(
-        (promise: Promise<T>) => {
-          dispatch({ type: "pending", data: null, error: null });
-          promise.then(
-            (data) => dispatch({ type: "resolved", data, error: null }),
-            (error) => dispatch({ type: "rejected", error, data: null })
-          );
-        },
-        [dispatch]
-      );
-      const selectData = useCallback(
+function useAsync<T>() {
+  const [state, dispatch] = useReducer(reducer, {
+    data: null,
+    status: "idle",
+    error: null,
+  });
+  const run = useCallback(
+    (promise: Promise<T>) => {
+      dispatch({ type: "pending", data: null, error: null });
+      promise.then(
         (data) => dispatch({ type: "resolved", data, error: null }),
-        [dispatch]
+        (error) => dispatch({ type: "rejected", error, data: null })
       );
-      const clearData = useCallback(
-        () => dispatch({ type: "clear", data: null, error: null }),
-        [dispatch]
-      );
-      return { state, run, selectData, clearData };
-    }
+    },
+    [dispatch]
+  );
+  const selectData = useCallback(
+    (data) => dispatch({ type: "resolved", data, error: null }),
+    [dispatch]
+  );
+  const clearData = useCallback(
+    () => dispatch({ type: "clear", data: null, error: null }),
+    [dispatch]
+  );
+  return { state, run, selectData, clearData };
+}
 
-    export default useAsync;
+export default useAsync;
     `,
     refer:
       "https://github.com/wordpree/local-weather/blob/master/src/useAsync.tsx",
@@ -426,38 +425,38 @@ export const codeBlog = [
     brief:
       "Build a neat and clean scroll trigger to determine whether an animation will apply.",
     snippet: `
-    import { useState, useEffect } from "react";
-    import { throttle } from "throttle-debounce";
+import { useState, useEffect } from "react";
+import { throttle } from "throttle-debounce";
 
-    type Animation = [boolean, React.Dispatch<React.SetStateAction<boolean>>];
+type Animation = [boolean, React.Dispatch<React.SetStateAction<boolean>>];
 
-    const getAnimate = (ref: React.RefObject<HTMLDivElement>) => {
-      if (ref && ref.current) {
-        const eleTop = ref.current.getBoundingClientRect().top; //element top to viewport
-        const eleHeight = ref.current.offsetHeight; //element height
-        const height = window.innerHeight;
-        return height - eleTop > eleHeight / 3;
-      }
-      return false;
+const getAnimate = (ref: React.RefObject<HTMLDivElement>) => {
+  if (ref && ref.current) {
+    const eleTop = ref.current.getBoundingClientRect().top; //element top to viewport
+    const eleHeight = ref.current.offsetHeight; //element height
+    const height = window.innerHeight;
+    return height - eleTop > eleHeight / 3;
+  }
+  return false;
+};
+
+const useAnimation = (ref: React.RefObject<HTMLDivElement>): Animation => {
+  const [animation, setAnimation] = useState(false);
+  useEffect(() => {
+    const handleScroll = throttle(200, () =>
+      setAnimation(() => getAnimate(ref))
+    );
+    setAnimation(() => getAnimate(ref));
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
     };
+  }, [ref]);
 
-    const useAnimation = (ref: React.RefObject<HTMLDivElement>): Animation => {
-      const [animation, setAnimation] = useState(false);
-      useEffect(() => {
-        const handleScroll = throttle(200, () =>
-          setAnimation(() => getAnimate(ref))
-        );
-        setAnimation(() => getAnimate(ref));
-        window.addEventListener("scroll", handleScroll);
-        return () => {
-          window.removeEventListener("scroll", handleScroll);
-        };
-      }, [ref]);
+  return [animation, setAnimation];
+};
 
-      return [animation, setAnimation];
-    };
-
-    export default useAnimation;
+export default useAnimation;
     `,
     refer:
       "https://github.com/wordpree/portfolio/blob/master/src/components/useAnimation.tsx",
@@ -466,36 +465,36 @@ export const codeBlog = [
     brief:
       "The following snippet is a Context that share data of the covid-19 real-time case.",
     snippet: `
-    import React, { useContext, useState, useEffect } from "react";
-    import { IGMaps } from "../util/type";
-    import { fetchData } from "../util";
+import React, { useContext, useState, useEffect } from "react";
+import { IGMaps } from "../util/type";
+import { fetchData } from "../util";
 
-    interface IBCProps {
-      children: React.ReactNode;
-    }
+interface IBCProps {
+  children: React.ReactNode;
+}
 
-    const casesWithMaps = React.createContext<IGMaps | null>(null);
-    export const CasesWithMapsProvider = ({ children }: IBCProps) => {
-      const [cases, setCases] = useState<IGMaps | null>(null);
-      const urlCountry = "https://corona.lmao.ninja/v2/countries";
-      const urlAll = "https://corona.lmao.ninja/v2/all";
-      useEffect(() => {
-        const promises = async () => {
-          const promise = [urlAll, urlCountry].map((url) => fetchData(url));
-          const res = await Promise.all(promise);
-          setCases({
-            all: res[0],
-            countries: res[1],
-          });
-        };
-        promises();
-      }, []);
-      return (
-        <casesWithMaps.Provider value={cases}>{children}</casesWithMaps.Provider>
-      );
+const casesWithMaps = React.createContext<IGMaps | null>(null);
+export const CasesWithMapsProvider = ({ children }: IBCProps) => {
+  const [cases, setCases] = useState<IGMaps | null>(null);
+  const urlCountry = "https://corona.lmao.ninja/v2/countries";
+  const urlAll = "https://corona.lmao.ninja/v2/all";
+  useEffect(() => {
+    const promises = async () => {
+      const promise = [urlAll, urlCountry].map((url) => fetchData(url));
+      const res = await Promise.all(promise);
+      setCases({
+        all: res[0],
+        countries: res[1],
+      });
     };
+    promises();
+  }, []);
+  return (
+    <casesWithMaps.Provider value={cases}>{children}</casesWithMaps.Provider>
+  );
+};
 
-    export const CasesWithMapsContext = () => useContext(casesWithMaps);
+export const CasesWithMapsContext = () => useContext(casesWithMaps);
     `,
     refer:
       "https://github.com/wordpree/covid19_tracker/blob/master/src/components/context.tsx",
@@ -503,38 +502,38 @@ export const codeBlog = [
   {
     brief: "It is to show more or fewer parks depends on user interaction",
     snippet: `
-    import React from "react";
-    import { Grow } from "@material-ui/core";
-    import { ITriposoPoi } from "../../util/type";
-    import ParkCard from "./ParkCard";
+import React from "react";
+import { Grow } from "@material-ui/core";
+import { ITriposoPoi } from "../../util/type";
+import ParkCard from "./ParkCard";
 
-    interface IPSProps {
-      data: ITriposoPoi[];
-      more: boolean;
-    }
+interface IPSProps {
+  data: ITriposoPoi[];
+  more: boolean;
+}
 
-    const ParksSmall = ({ data, more }: IPSProps) => {
-      const lists = (Component: React.SFC<{ data: ITriposoPoi }>) => (
-        data: ITriposoPoi[]
-      ) => data.map((item) => <Component key={item.id} data={item} />);
-      return (
-        <div>
-          {lists(ParkCard)(data.slice(0, 3))}
-          <Grow in={more}>
-            <div
-              style={{
-                display: more ? "block" : "none",
-                width: more ? "inherit" : 0,
-              }}
-            >
-              {more && lists(ParkCard)(data.slice(3))}
-            </div>
-          </Grow>
+const ParksSmall = ({ data, more }: IPSProps) => {
+  const lists = (Component: React.SFC<{ data: ITriposoPoi }>) => (
+    data: ITriposoPoi[]
+  ) => data.map((item) => <Component key={item.id} data={item} />);
+  return (
+    <div>
+      {lists(ParkCard)(data.slice(0, 3))}
+      <Grow in={more}>
+        <div
+          style={{
+            display: more ? "block" : "none",
+            width: more ? "inherit" : 0,
+          }}
+        >
+          {more && lists(ParkCard)(data.slice(3))}
         </div>
-      );
-    };
+      </Grow>
+    </div>
+  );
+};
 
-    export default ParksSmall;
+export default ParksSmall;
     `,
     refer:
       "https://github.com/wordpree/weatherApp/blob/master/src/components/attractions/ParksSmall.tsx",
@@ -545,35 +544,35 @@ export const codeBlog = [
     brief:
       "Build own Framer-motion button based on Material-UI button component ",
     snippet: `
-    import React from "react";
-    import { motion } from "framer-motion";
-    import { Button } from "@material-ui/core";
+import React from "react";
+import { motion } from "framer-motion";
+import { Button } from "@material-ui/core";
 
-    interface IMBProps {
-      [key: string]: string | any;
-      children: React.ReactNode;
-    }
-    //framer motion with mui
-    const FrMotionButton = ({ children, ...others }: IMBProps) => {
-      const MotionBtnRef = React.forwardRef<any, any>((props, ref) => (
-        <motion.button
-          {...props}
-          ref={ref}
-          whileHover={{
-            color: "#fff",
-            scale: 1.05,
-          }}
-          transition={{ type: "spring", stiffness: 120 }}
-        />
-      ));
-      return (
-        <Button component={MotionBtnRef} {...others}>
-          {children}
-        </Button>
-      );
-    };
+interface IMBProps {
+  [key: string]: string | any;
+  children: React.ReactNode;
+}
+//framer motion with mui
+const FrMotionButton = ({ children, ...others }: IMBProps) => {
+  const MotionBtnRef = React.forwardRef<any, any>((props, ref) => (
+    <motion.button
+      {...props}
+      ref={ref}
+      whileHover={{
+        color: "#fff",
+        scale: 1.05,
+      }}
+      transition={{ type: "spring", stiffness: 120 }}
+    />
+  ));
+  return (
+    <Button component={MotionBtnRef} {...others}>
+      {children}
+    </Button>
+  );
+};
 
-    export default FrMotionButton;
+export default FrMotionButton;
     `,
     refer:
       "https://github.com/wordpree/weatherApp/blob/master/src/components/FrMotionButton.tsx",
