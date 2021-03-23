@@ -312,7 +312,7 @@ const DialogContext = createContext<unknown>(null);
 const useDialogContext = () => {
   const context = useContext(DialogContext) as TDialogCtx;
   if (!context) {
-    throw new Error(dialogContext should be used within its Provider);
+    throw new Error('dialogContext should be used within its Provider');
   }
   return context;
 };
