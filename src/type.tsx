@@ -84,6 +84,6 @@ export type TSkillIcons = IIProps[];
 export interface ISSProps {
   brief: string;
   snippet: string;
-  refer: string;
+  refer?: string;
   improve?: string;
 }

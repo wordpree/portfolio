@@ -577,4 +577,52 @@ export default FrMotionButton;
     refer:
       "https://github.com/wordpree/weatherApp/blob/master/src/components/FrMotionButton.tsx",
   },
+  {
+    brief:
+      "UseReducer, Context API and dispatch helper function make a good pattern.",
+    snippet: `
+import React, {useReducer,useContext,createContext} from 'react';
+
+const MyContext = createContext(null);
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "start":
+      break;
+    case "resolved":
+      break;
+    case "rejected":
+      break;
+    default:
+      throw new Error('unknown action type.');
+  }
+};
+
+const updateStateHelper = async (dispatch, args, pieceOfState) => {
+  dispatch({ type: "start" });
+  try {
+    /* say update personal details: look up the person from DB,
+       updates with the new args.                              */
+    const updated = await updating(args, pieceOfState);
+    dispatch({ type: "resolved", updated });
+  } catch (error) {
+    dispatch({ type: "rejected", error });
+  }
+};
+
+const MyContextProvider = (props) => {
+  const [state, dispatch] = useReducer(reducer, initalValue);
+  const value = { state, dispatch };
+  return <MyContext.Provider {...props} value={value} />;
+};
+
+const useMyContext = () => {
+  const context = useContext(MyContext);
+  if (!context)
+    throw Error('MyContext should be used within MyContextProvider');
+};
+
+export { MyContextProvider, useMyContext, updateStateHelper };
+    `,
+  },
 ];

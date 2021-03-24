@@ -86,14 +86,16 @@ const SingleSnippet: React.FC<ISSProps> = ({
           </pre>
         )}
       </Highlight>
-      <Button
-        href={refer}
-        className={classes.btn}
-        color="secondary"
-        target="_blank"
-      >
-        Click and go direct to the original source of the code
-      </Button>
+      {refer ? (
+        <Button
+          href={refer}
+          className={classes.btn}
+          color="secondary"
+          target="_blank"
+        >
+          Click and go direct to the original source of the code
+        </Button>
+      ) : null}
     </article>
   );
 };
