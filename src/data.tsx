@@ -26,7 +26,7 @@ export const portfolio = [
   },
   {
     id: 2,
-    link: "https://covids.social",
+    link: "https://novel-covid19-tracking.netlify.app",
     img: cvdTracking,
     title: "Covid-19 Tracking",
     content:
@@ -82,7 +82,7 @@ export const projects = [
   {
     id: 2,
     label: ["ux/ui", "web"],
-    link: "https://covids.social",
+    link: "https://novel-covid19-tracking.netlify.app",
     img: cvdTracking,
     title: "COVID19 Statistics",
     subtitle: "Restful API",
@@ -215,7 +215,7 @@ export const details = [
     description:
       "Organize and create covid-19 warning and tracking single page application. Utilize Google JavaScript Map API and RESTful coronavirus case web service to integrate data inside map application which provides net and clean UI.",
     gitlink: "https://github.com/wordpree/covid19_tracker",
-    weblink: "https://covids.social",
+    weblink: "https://novel-covid19-tracking.netlify.app",
   },
   {
     id: 3,
