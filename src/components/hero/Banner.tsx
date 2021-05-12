@@ -1,5 +1,5 @@
 import React from "react";
-import { makeStyles, Typography } from "@material-ui/core";
+import { Button, makeStyles, Typography } from "@material-ui/core";
 import profile from "../../assets/profile.png";
 import { ButtonWithIcon } from "../MotionBtnIcon";
 
@@ -88,6 +88,29 @@ const useStyle = makeStyles((theme) => ({
       marginTop: "3.5rem",
     },
   },
+  btnWrapper: {
+    display: "flex",
+    flexDirection: "column",
+    "&>*": {
+      width: 200,
+      margin: "0 auto",
+      [theme.breakpoints.up("md")]: {
+        margin: "initial",
+      },
+    },
+    "& >*:last-child": {
+      marginTop: "1.25em",
+      border: "1px solid #0672A6",
+      [theme.breakpoints.up("md")]: {
+        marginTop: 0,
+        marginLeft: "2.5em",
+      },
+    },
+    [theme.breakpoints.up("md")]: {
+      flexDirection: "row",
+      alignItems: "center",
+    },
+  },
 }));
 
 const Banner = () => {
@@ -105,8 +128,16 @@ const Banner = () => {
             A well-established software engineer with educational background and
             passion for designing and developing website and application
           </Typography>
-          <div>
+          <div className={classes.btnWrapper}>
             <ButtonWithIcon />
+            <Button
+              variant="outlined"
+              href="https://super-pet.club/"
+              arial-label="magento store"
+              target="_blank"
+            >
+              Explore Magento Store
+            </Button>
           </div>
         </article>
       </div>
